@@ -192,13 +192,6 @@
                     <resource>
                         <directory>src/main/java</directory>
                         <filtering>false</filtering>
-
-                        <!-- Exclude node stuff, Gulp build file  -->
-                        <excludes>
-                            <exclude>package.json</exclude>
-                            <exclude>node_modules/**</exclude>
-                            <exclude>Gulpfile.js</exclude>
-                        </excludes>
                     </resource>
                 </resources>
 
