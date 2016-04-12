@@ -1,4 +1,4 @@
-package io.clickhandler.reactGwt.client.react.generator;
+package io.clickhandler.reactGwt.generator;
 
 import com.google.common.io.Files;
 
