@@ -1,22 +1,16 @@
+package io.clickhandler.reactGwt.client.react;
 
 import elemental.client.Browser;
 import elemental.dom.Document;
 import elemental.html.Console;
 import elemental.html.Window;
 import io.clickhandler.reactGwt.client.*;
-import io.clickhandler.reactGwt.client.dom.StyleProps;
 import io.clickhandler.reactGwt.client.dom.DOM;
-import io.clickhandler.reactGwt.client.react.*;
 import jsinterop.annotations.JsIgnore;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 import javax.inject.Inject;
-
-/**
- * @param <P>
- * @param <S>
- */
 
 @JsType
 public abstract class Component<P, S> {
@@ -26,22 +20,27 @@ public abstract class Component<P, S> {
     protected final Document document = Browser.getDocument();
     @JsIgnore
     protected final Window window = Browser.getWindow();
+    @JsIgnore
+    @Inject
+    protected Bus bus;
+    @JsIgnore
+    private ReactClass<P> reactClass;
 
-    private Object reactClass;
+    public String displayName;
 
     public Component() {
         displayName = getClass().getSimpleName();
 
         // todo context stuff needed?
-        addContextTypes(contextTypes);
-        addChildContextTypes(childContextTypes);
+        /*addContextTypes(contextTypes);
+        addChildContextTypes(childContextTypes);*/
     }
 
-    public ReactClass getReactClass() {
+    private ReactClass getReactClass() {
         if (reactClass == null) {
-            reactClass = React.createClass(this);
+            reactClass = (ReactClass<P>) React.createClass(this);
         }
-        return (ReactClass) reactClass;
+        return reactClass;
     }
 
     /*
@@ -111,35 +110,9 @@ public abstract class Component<P, S> {
         return createElement(callback);
     }
 
-    public ReactElement _() {
-        return createElement();
-    }
-
-    public ReactElement _(Object... children) {
-        return createElement(children);
-    }
-
-    public ReactElement _(P props) {
-        return createElement(props);
-    }
-
-    public ReactElement _(Func.Run1<P> propsCallback) {
-        return createElement(propsCallback);
-    }
-
-    public ReactElement _(Func.Run1<P> propsCallback, Object... children) {
-        return createElement(propsCallback, children);
-    }
-
-    public ReactElement _(Func.Run2<P, DOM.ChildList> callback) {
-        return createElement(callback);
-    }
-
     /*
      * Lifecycle
      */
-
-    // Javascript properties
 
     public Func.Call<P> getDefaultProps = Func.bind(this::getDefaultProps);
     public Func.Call<S> getInitialState = Func.bind(this::getInitialState);
@@ -148,9 +121,9 @@ public abstract class Component<P, S> {
     public Func.Run1<P> componentWillReceiveProps = Func.bind(this::componentWillReceivePropsInternal);
     public Func.Call2<Boolean, P, S> shouldComponentUpdate = Func.bind(this::shouldComponentUpdateInternal);
     public Func.Run2<P, S> componentWillUpdate = Func.bind(this::componentWillUpdateInternal);
-    @JsProperty(name = "render")
+    @JsProperty(name = "render") // todo test if we need the property name declaration
     public Func.Call<ReactElement> render = Func.bind(this::renderInternal);
-    @JsProperty(name = "componentDidUpdate")
+    @JsProperty(name = "componentDidUpdate") // todo test if we need the property name declaration
     public Func.Run2<P, S> componentDidUpdate = Func.bind(this::componentDidUpdateInternal);
     public Func.Run componentWillUnmount = Func.bind(this::componentWillUnmountInternal);
 
@@ -223,7 +196,7 @@ public abstract class Component<P, S> {
                 }
             }*/
 
-            return render($this);
+        return render($this);
         /*} finally {
             ChildCounter.get().pop(); //  needed?
         }*/
@@ -268,13 +241,16 @@ public abstract class Component<P, S> {
     }
 
     @JsIgnore
+    protected void intakeProps(ReactComponent<P, S> $this, P nextProps) {
+    }
+
+    @JsIgnore
     protected boolean shouldComponentUpdate(ReactComponent<P, S> $this, P nextProps, S nextState) {
         return true;
     }
 
     @JsIgnore
     protected void componentWillUpdate(ReactComponent<P, S> $this, P curProps, P nextProps, S curState, S nextState) {
-
     }
 
     @JsIgnore
@@ -287,63 +263,6 @@ public abstract class Component<P, S> {
     @JsIgnore
     protected void componentWillUnmount(final ReactComponent<P, S> $this) {
     }
-
-    // todo decide if we want this
-    @JsIgnore
-    protected void intakeProps(ReactComponent<P, S> $this, P nextProps) {
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-     * Defaults
-     */
-
-    @JsProperty
-    public String displayName = "";
-    @JsProperty
-    public ContextTypes contextTypes = new ContextTypes();
-    @JsProperty
-    public ContextTypes childContextTypes = new ContextTypes();
-    @JsProperty
-    public Func.Call getChildContext = this::getChildContext;
-    @Inject
-    Bus bus;
-
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-    @JsIgnore
-    protected StyleProps css() {
-        return new StyleProps();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /*
      * Old / TODO Remove
@@ -389,9 +308,15 @@ public abstract class Component<P, S> {
      * TODO look at getting rid of this / what is working or not
      */
 
-    protected native Object getChildContext() /*-{
+    /*public Func.Call getChildContext = this::getChildContext;
+
+    public ContextTypes contextTypes = new ContextTypes();
+
+    public ContextTypes childContextTypes = new ContextTypes();
+
+    protected native Object getChildContext() *//*-{
         return {};
-    }-*/;
+    }-*//*;
 
     @JsIgnore
     protected void addContextTypes(ContextTypes contextTypes) {
@@ -412,5 +337,5 @@ public abstract class Component<P, S> {
         public <T> void set(String name, T value) {
             Reflection.set(this, name, value);
         }
-    }
+    }*/
 }

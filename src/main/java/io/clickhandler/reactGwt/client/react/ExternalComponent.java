@@ -10,12 +10,9 @@ import io.clickhandler.reactGwt.client.dom.DOM;
  * @param <P>
  */
 public abstract class ExternalComponent<P> {
+
     public ExternalComponent() {
     }
-
-    public native P createProps() /*-{
-        return {};
-    }-*/;
 
     protected void initProps(P props) {
     }
@@ -23,7 +20,7 @@ public abstract class ExternalComponent<P> {
     protected abstract ReactClass<P> reactClass();
 
     protected P defaultProps() {
-        final P props = createProps();
+        final P props = Jso.create();
         try {
             initProps(props);
             Reflection.assign(props, reactClass().getDefaultProps());
