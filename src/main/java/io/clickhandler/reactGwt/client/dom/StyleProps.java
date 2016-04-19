@@ -8,7 +8,7 @@ import jsinterop.annotations.JsType;
  *
  */
 @JsType
-public class CSSProps {
+public class StyleProps {
     @JsProperty
     public Object backgroundColor;
     @JsProperty
@@ -548,1347 +548,1347 @@ public class CSSProps {
     @JsProperty
     public Object writingMode;
     @JsIgnore
-    public CSSProps backgroundColor(Object value) {
+    public StyleProps backgroundColor(Object value) {
         this.backgroundColor = value;
         return this;
     }
     @JsIgnore
-    public CSSProps boxFlex(Number value) {
+    public StyleProps boxFlex(Number value) {
         this.boxFlex = value;
         return this;
     }
     @JsIgnore
-    public CSSProps boxFlexGroup(Number value) {
+    public StyleProps boxFlexGroup(Number value) {
         this.boxFlexGroup = value;
         return this;
     }
     @JsIgnore
-    public CSSProps columnCount(Number value) {
+    public StyleProps columnCount(Number value) {
         this.columnCount = value;
         return this;
     }
     @JsIgnore
-    public CSSProps flex(Object value) {
+    public StyleProps flex(Object value) {
         this.flex = value;
         return this;
     }
     @JsIgnore
-    public CSSProps flexGrow(Number value) {
+    public StyleProps flexGrow(Number value) {
         this.flexGrow = value;
         return this;
     }
     @JsIgnore
-    public CSSProps flexShrink(Number value) {
+    public StyleProps flexShrink(Number value) {
         this.flexShrink = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fontWeight(Object value) {
+    public StyleProps fontWeight(Object value) {
         this.fontWeight = value;
         return this;
     }
     @JsIgnore
-    public CSSProps lineClamp(Number value) {
+    public StyleProps lineClamp(Number value) {
         this.lineClamp = value;
         return this;
     }
     @JsIgnore
-    public CSSProps lineHeight(Object value) {
+    public StyleProps lineHeight(Object value) {
         this.lineHeight = value;
         return this;
     }
     @JsIgnore
-    public CSSProps opacity(Number value) {
+    public StyleProps opacity(Number value) {
         this.opacity = value;
         return this;
     }
     @JsIgnore
-    public CSSProps order(Number value) {
+    public StyleProps order(Number value) {
         this.order = value;
         return this;
     }
     @JsIgnore
-    public CSSProps orphans(Number value) {
+    public StyleProps orphans(Number value) {
         this.orphans = value;
         return this;
     }
     @JsIgnore
-    public CSSProps widows(Number value) {
+    public StyleProps widows(Number value) {
         this.widows = value;
         return this;
     }
     @JsIgnore
-    public CSSProps zIndex(Number value) {
+    public StyleProps zIndex(Number value) {
         this.zIndex = value;
         return this;
     }
     @JsIgnore
-    public CSSProps zoom(Number value) {
+    public StyleProps zoom(Number value) {
         this.zoom = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fontSize(Object value) {
+    public StyleProps fontSize(Object value) {
         this.fontSize = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fillOpacity(Number value) {
+    public StyleProps fillOpacity(Number value) {
         this.fillOpacity = value;
         return this;
     }
     @JsIgnore
-    public CSSProps strokeOpacity(Number value) {
+    public StyleProps strokeOpacity(Number value) {
         this.strokeOpacity = value;
         return this;
     }
     @JsIgnore
-    public CSSProps strokeWidth(Number value) {
+    public StyleProps strokeWidth(Number value) {
         this.strokeWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps alignContent(Object value) {
+    public StyleProps alignContent(Object value) {
         this.alignContent = value;
         return this;
     }
     @JsIgnore
-    public CSSProps alignItems(Object value) {
+    public StyleProps alignItems(Object value) {
         this.alignItems = value;
         return this;
     }
     @JsIgnore
-    public CSSProps alignSelf(Object value) {
+    public StyleProps alignSelf(Object value) {
         this.alignSelf = value;
         return this;
     }
     @JsIgnore
-    public CSSProps alignmentAdjust(Object value) {
+    public StyleProps alignmentAdjust(Object value) {
         this.alignmentAdjust = value;
         return this;
     }
     @JsIgnore
-    public CSSProps alignmentBaseline(Object value) {
+    public StyleProps alignmentBaseline(Object value) {
         this.alignmentBaseline = value;
         return this;
     }
     @JsIgnore
-    public CSSProps animationDelay(Object value) {
+    public StyleProps animationDelay(Object value) {
         this.animationDelay = value;
         return this;
     }
     @JsIgnore
-    public CSSProps animationDirection(Object value) {
+    public StyleProps animationDirection(Object value) {
         this.animationDirection = value;
         return this;
     }
     @JsIgnore
-    public CSSProps animationIterationCount(Object value) {
+    public StyleProps animationIterationCount(Object value) {
         this.animationIterationCount = value;
         return this;
     }
     @JsIgnore
-    public CSSProps animationName(Object value) {
+    public StyleProps animationName(Object value) {
         this.animationName = value;
         return this;
     }
     @JsIgnore
-    public CSSProps animationPlayState(Object value) {
+    public StyleProps animationPlayState(Object value) {
         this.animationPlayState = value;
         return this;
     }
     @JsIgnore
-    public CSSProps appearance(Object value) {
+    public StyleProps appearance(Object value) {
         this.appearance = value;
         return this;
     }
     @JsIgnore
-    public CSSProps backfaceVisibility(Object value) {
+    public StyleProps backfaceVisibility(Object value) {
         this.backfaceVisibility = value;
         return this;
     }
     @JsIgnore
-    public CSSProps backgroundBlendMode(Object value) {
+    public StyleProps backgroundBlendMode(Object value) {
         this.backgroundBlendMode = value;
         return this;
     }
     @JsIgnore
-    public CSSProps backgroundComposite(Object value) {
+    public StyleProps backgroundComposite(Object value) {
         this.backgroundComposite = value;
         return this;
     }
     @JsIgnore
-    public CSSProps backgroundImage(Object value) {
+    public StyleProps backgroundImage(Object value) {
         this.backgroundImage = value;
         return this;
     }
     @JsIgnore
-    public CSSProps backgroundOrigin(Object value) {
+    public StyleProps backgroundOrigin(Object value) {
         this.backgroundOrigin = value;
         return this;
     }
     @JsIgnore
-    public CSSProps backgroundPositionX(Object value) {
+    public StyleProps backgroundPositionX(Object value) {
         this.backgroundPositionX = value;
         return this;
     }
     @JsIgnore
-    public CSSProps backgroundRepeat(Object value) {
+    public StyleProps backgroundRepeat(Object value) {
         this.backgroundRepeat = value;
         return this;
     }
     @JsIgnore
-    public CSSProps baselineShift(Object value) {
+    public StyleProps baselineShift(Object value) {
         this.baselineShift = value;
         return this;
     }
     @JsIgnore
-    public CSSProps behavior(Object value) {
+    public StyleProps behavior(Object value) {
         this.behavior = value;
         return this;
     }
     @JsIgnore
-    public CSSProps border(Object value) {
+    public StyleProps border(Object value) {
         this.border = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderBottomLeftRadius(Object value) {
+    public StyleProps borderBottomLeftRadius(Object value) {
         this.borderBottomLeftRadius = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderBottomRightRadius(Object value) {
+    public StyleProps borderBottomRightRadius(Object value) {
         this.borderBottomRightRadius = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderBottomWidth(Object value) {
+    public StyleProps borderBottomWidth(Object value) {
         this.borderBottomWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderCollapse(Object value) {
+    public StyleProps borderCollapse(Object value) {
         this.borderCollapse = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderColor(Object value) {
+    public StyleProps borderColor(Object value) {
         this.borderColor = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderCornerShape(Object value) {
+    public StyleProps borderCornerShape(Object value) {
         this.borderCornerShape = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderImageSource(Object value) {
+    public StyleProps borderImageSource(Object value) {
         this.borderImageSource = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderImageWidth(Object value) {
+    public StyleProps borderImageWidth(Object value) {
         this.borderImageWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderLeft(Object value) {
+    public StyleProps borderLeft(Object value) {
         this.borderLeft = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderLeftColor(Object value) {
+    public StyleProps borderLeftColor(Object value) {
         this.borderLeftColor = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderLeftStyle(Object value) {
+    public StyleProps borderLeftStyle(Object value) {
         this.borderLeftStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderLeftWidth(Object value) {
+    public StyleProps borderLeftWidth(Object value) {
         this.borderLeftWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderRight(Object value) {
+    public StyleProps borderRight(Object value) {
         this.borderRight = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderRightColor(Object value) {
+    public StyleProps borderRightColor(Object value) {
         this.borderRightColor = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderRightStyle(Object value) {
+    public StyleProps borderRightStyle(Object value) {
         this.borderRightStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderRightWidth(Object value) {
+    public StyleProps borderRightWidth(Object value) {
         this.borderRightWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderSpacing(Object value) {
+    public StyleProps borderSpacing(Object value) {
         this.borderSpacing = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderStyle(Object value) {
+    public StyleProps borderStyle(Object value) {
         this.borderStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderTop(Object value) {
+    public StyleProps borderTop(Object value) {
         this.borderTop = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderTopColor(Object value) {
+    public StyleProps borderTopColor(Object value) {
         this.borderTopColor = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderTopLeftRadius(Object value) {
+    public StyleProps borderTopLeftRadius(Object value) {
         this.borderTopLeftRadius = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderTopRightRadius(Object value) {
+    public StyleProps borderTopRightRadius(Object value) {
         this.borderTopRightRadius = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderTopStyle(Object value) {
+    public StyleProps borderTopStyle(Object value) {
         this.borderTopStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderTopWidth(Object value) {
+    public StyleProps borderTopWidth(Object value) {
         this.borderTopWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps borderWidth(Object value) {
+    public StyleProps borderWidth(Object value) {
         this.borderWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps boxAlign(Object value) {
+    public StyleProps boxAlign(Object value) {
         this.boxAlign = value;
         return this;
     }
     @JsIgnore
-    public CSSProps boxDecorationBreak(Object value) {
+    public StyleProps boxDecorationBreak(Object value) {
         this.boxDecorationBreak = value;
         return this;
     }
     @JsIgnore
-    public CSSProps boxDirection(Object value) {
+    public StyleProps boxDirection(Object value) {
         this.boxDirection = value;
         return this;
     }
     @JsIgnore
-    public CSSProps boxLineProgression(Object value) {
+    public StyleProps boxLineProgression(Object value) {
         this.boxLineProgression = value;
         return this;
     }
     @JsIgnore
-    public CSSProps boxLines(Object value) {
+    public StyleProps boxLines(Object value) {
         this.boxLines = value;
         return this;
     }
     @JsIgnore
-    public CSSProps boxOrdinalGroup(Object value) {
+    public StyleProps boxOrdinalGroup(Object value) {
         this.boxOrdinalGroup = value;
         return this;
     }
     @JsIgnore
-    public CSSProps breakAfter(Object value) {
+    public StyleProps breakAfter(Object value) {
         this.breakAfter = value;
         return this;
     }
     @JsIgnore
-    public CSSProps breakBefore(Object value) {
+    public StyleProps breakBefore(Object value) {
         this.breakBefore = value;
         return this;
     }
     @JsIgnore
-    public CSSProps breakInside(Object value) {
+    public StyleProps breakInside(Object value) {
         this.breakInside = value;
         return this;
     }
     @JsIgnore
-    public CSSProps clear(Object value) {
+    public StyleProps clear(Object value) {
         this.clear = value;
         return this;
     }
     @JsIgnore
-    public CSSProps clip(Object value) {
+    public StyleProps clip(Object value) {
         this.clip = value;
         return this;
     }
     @JsIgnore
-    public CSSProps clipRule(Object value) {
+    public StyleProps clipRule(Object value) {
         this.clipRule = value;
         return this;
     }
     @JsIgnore
-    public CSSProps color(Object value) {
+    public StyleProps color(Object value) {
         this.color = value;
         return this;
     }
     @JsIgnore
-    public CSSProps columnFill(Object value) {
+    public StyleProps columnFill(Object value) {
         this.columnFill = value;
         return this;
     }
     @JsIgnore
-    public CSSProps columnGap(Object value) {
+    public StyleProps columnGap(Object value) {
         this.columnGap = value;
         return this;
     }
     @JsIgnore
-    public CSSProps columnRule(Object value) {
+    public StyleProps columnRule(Object value) {
         this.columnRule = value;
         return this;
     }
     @JsIgnore
-    public CSSProps columnRuleColor(Object value) {
+    public StyleProps columnRuleColor(Object value) {
         this.columnRuleColor = value;
         return this;
     }
     @JsIgnore
-    public CSSProps columnRuleWidth(Object value) {
+    public StyleProps columnRuleWidth(Object value) {
         this.columnRuleWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps columnSpan(Object value) {
+    public StyleProps columnSpan(Object value) {
         this.columnSpan = value;
         return this;
     }
     @JsIgnore
-    public CSSProps columnWidth(Object value) {
+    public StyleProps columnWidth(Object value) {
         this.columnWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps columns(Object value) {
+    public StyleProps columns(Object value) {
         this.columns = value;
         return this;
     }
     @JsIgnore
-    public CSSProps counterIncrement(Object value) {
+    public StyleProps counterIncrement(Object value) {
         this.counterIncrement = value;
         return this;
     }
     @JsIgnore
-    public CSSProps counterReset(Object value) {
+    public StyleProps counterReset(Object value) {
         this.counterReset = value;
         return this;
     }
     @JsIgnore
-    public CSSProps cue(Object value) {
+    public StyleProps cue(Object value) {
         this.cue = value;
         return this;
     }
     @JsIgnore
-    public CSSProps cueAfter(Object value) {
+    public StyleProps cueAfter(Object value) {
         this.cueAfter = value;
         return this;
     }
     @JsIgnore
-    public CSSProps direction(Object value) {
+    public StyleProps direction(Object value) {
         this.direction = value;
         return this;
     }
     @JsIgnore
-    public CSSProps display(Object value) {
+    public StyleProps display(Object value) {
         this.display = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fill(Object value) {
+    public StyleProps fill(Object value) {
         this.fill = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fillRule(Object value) {
+    public StyleProps fillRule(Object value) {
         this.fillRule = value;
         return this;
     }
     @JsIgnore
-    public CSSProps filter(Object value) {
+    public StyleProps filter(Object value) {
         this.filter = value;
         return this;
     }
     @JsIgnore
-    public CSSProps flexAlign(Object value) {
+    public StyleProps flexAlign(Object value) {
         this.flexAlign = value;
         return this;
     }
     @JsIgnore
-    public CSSProps flexBasis(Object value) {
+    public StyleProps flexBasis(Object value) {
         this.flexBasis = value;
         return this;
     }
     @JsIgnore
-    public CSSProps flexDirection(Object value) {
+    public StyleProps flexDirection(Object value) {
         this.flexDirection = value;
         return this;
     }
     @JsIgnore
-    public CSSProps flexFlow(Object value) {
+    public StyleProps flexFlow(Object value) {
         this.flexFlow = value;
         return this;
     }
     @JsIgnore
-    public CSSProps flexItemAlign(Object value) {
+    public StyleProps flexItemAlign(Object value) {
         this.flexItemAlign = value;
         return this;
     }
     @JsIgnore
-    public CSSProps flexLinePack(Object value) {
+    public StyleProps flexLinePack(Object value) {
         this.flexLinePack = value;
         return this;
     }
     @JsIgnore
-    public CSSProps flexOrder(Object value) {
+    public StyleProps flexOrder(Object value) {
         this.flexOrder = value;
         return this;
     }
     @JsIgnore
-    public CSSProps _float(Object value) {
+    public StyleProps _float(Object value) {
         this._float = value;
         return this;
     }
     @JsIgnore
-    public CSSProps flowFrom(Object value) {
+    public StyleProps flowFrom(Object value) {
         this.flowFrom = value;
         return this;
     }
     @JsIgnore
-    public CSSProps font(Object value) {
+    public StyleProps font(Object value) {
         this.font = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fontFamily(Object value) {
+    public StyleProps fontFamily(Object value) {
         this.fontFamily = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fontKerning(Object value) {
+    public StyleProps fontKerning(Object value) {
         this.fontKerning = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fontSizeAdjust(Object value) {
+    public StyleProps fontSizeAdjust(Object value) {
         this.fontSizeAdjust = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fontStretch(Object value) {
+    public StyleProps fontStretch(Object value) {
         this.fontStretch = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fontStyle(Object value) {
+    public StyleProps fontStyle(Object value) {
         this.fontStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fontSynthesis(Object value) {
+    public StyleProps fontSynthesis(Object value) {
         this.fontSynthesis = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fontVariant(Object value) {
+    public StyleProps fontVariant(Object value) {
         this.fontVariant = value;
         return this;
     }
     @JsIgnore
-    public CSSProps fontVariantAlternates(Object value) {
+    public StyleProps fontVariantAlternates(Object value) {
         this.fontVariantAlternates = value;
         return this;
     }
     @JsIgnore
-    public CSSProps gridArea(Object value) {
+    public StyleProps gridArea(Object value) {
         this.gridArea = value;
         return this;
     }
     @JsIgnore
-    public CSSProps gridColumn(Object value) {
+    public StyleProps gridColumn(Object value) {
         this.gridColumn = value;
         return this;
     }
     @JsIgnore
-    public CSSProps gridColumnEnd(Object value) {
+    public StyleProps gridColumnEnd(Object value) {
         this.gridColumnEnd = value;
         return this;
     }
     @JsIgnore
-    public CSSProps gridColumnStart(Object value) {
+    public StyleProps gridColumnStart(Object value) {
         this.gridColumnStart = value;
         return this;
     }
     @JsIgnore
-    public CSSProps gridRow(Object value) {
+    public StyleProps gridRow(Object value) {
         this.gridRow = value;
         return this;
     }
     @JsIgnore
-    public CSSProps gridRowEnd(Object value) {
+    public StyleProps gridRowEnd(Object value) {
         this.gridRowEnd = value;
         return this;
     }
     @JsIgnore
-    public CSSProps gridRowPosition(Object value) {
+    public StyleProps gridRowPosition(Object value) {
         this.gridRowPosition = value;
         return this;
     }
     @JsIgnore
-    public CSSProps gridRowSpan(Object value) {
+    public StyleProps gridRowSpan(Object value) {
         this.gridRowSpan = value;
         return this;
     }
     @JsIgnore
-    public CSSProps gridTemplateAreas(Object value) {
+    public StyleProps gridTemplateAreas(Object value) {
         this.gridTemplateAreas = value;
         return this;
     }
     @JsIgnore
-    public CSSProps gridTemplateColumns(Object value) {
+    public StyleProps gridTemplateColumns(Object value) {
         this.gridTemplateColumns = value;
         return this;
     }
     @JsIgnore
-    public CSSProps gridTemplateRows(Object value) {
+    public StyleProps gridTemplateRows(Object value) {
         this.gridTemplateRows = value;
         return this;
     }
     @JsIgnore
-    public CSSProps height(Object value) {
+    public StyleProps height(Object value) {
         this.height = value;
         return this;
     }
     @JsIgnore
-    public CSSProps hyphenateLimitChars(Object value) {
+    public StyleProps hyphenateLimitChars(Object value) {
         this.hyphenateLimitChars = value;
         return this;
     }
     @JsIgnore
-    public CSSProps hyphenateLimitLines(Object value) {
+    public StyleProps hyphenateLimitLines(Object value) {
         this.hyphenateLimitLines = value;
         return this;
     }
     @JsIgnore
-    public CSSProps hyphenateLimitZone(Object value) {
+    public StyleProps hyphenateLimitZone(Object value) {
         this.hyphenateLimitZone = value;
         return this;
     }
     @JsIgnore
-    public CSSProps hyphens(Object value) {
+    public StyleProps hyphens(Object value) {
         this.hyphens = value;
         return this;
     }
     @JsIgnore
-    public CSSProps imeMode(Object value) {
+    public StyleProps imeMode(Object value) {
         this.imeMode = value;
         return this;
     }
     @JsIgnore
-    public CSSProps layoutGrid(Object value) {
+    public StyleProps layoutGrid(Object value) {
         this.layoutGrid = value;
         return this;
     }
     @JsIgnore
-    public CSSProps layoutGridChar(Object value) {
+    public StyleProps layoutGridChar(Object value) {
         this.layoutGridChar = value;
         return this;
     }
     @JsIgnore
-    public CSSProps layoutGridLine(Object value) {
+    public StyleProps layoutGridLine(Object value) {
         this.layoutGridLine = value;
         return this;
     }
     @JsIgnore
-    public CSSProps layoutGridMode(Object value) {
+    public StyleProps layoutGridMode(Object value) {
         this.layoutGridMode = value;
         return this;
     }
     @JsIgnore
-    public CSSProps layoutGridType(Object value) {
+    public StyleProps layoutGridType(Object value) {
         this.layoutGridType = value;
         return this;
     }
     @JsIgnore
-    public CSSProps left(Object value) {
+    public StyleProps left(Object value) {
         this.left = value;
         return this;
     }
     @JsIgnore
-    public CSSProps letterSpacing(Object value) {
+    public StyleProps letterSpacing(Object value) {
         this.letterSpacing = value;
         return this;
     }
     @JsIgnore
-    public CSSProps lineBreak(Object value) {
+    public StyleProps lineBreak(Object value) {
         this.lineBreak = value;
         return this;
     }
     @JsIgnore
-    public CSSProps listStyle(Object value) {
+    public StyleProps listStyle(Object value) {
         this.listStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps listStyleImage(Object value) {
+    public StyleProps listStyleImage(Object value) {
         this.listStyleImage = value;
         return this;
     }
     @JsIgnore
-    public CSSProps listStylePosition(Object value) {
+    public StyleProps listStylePosition(Object value) {
         this.listStylePosition = value;
         return this;
     }
     @JsIgnore
-    public CSSProps listStyleType(Object value) {
+    public StyleProps listStyleType(Object value) {
         this.listStyleType = value;
         return this;
     }
     @JsIgnore
-    public CSSProps margin(Object value) {
+    public StyleProps margin(Object value) {
         this.margin = value;
         return this;
     }
     @JsIgnore
-    public CSSProps marginBottom(Object value) {
+    public StyleProps marginBottom(Object value) {
         this.marginBottom = value;
         return this;
     }
     @JsIgnore
-    public CSSProps marginLeft(Object value) {
+    public StyleProps marginLeft(Object value) {
         this.marginLeft = value;
         return this;
     }
     @JsIgnore
-    public CSSProps marginRight(Object value) {
+    public StyleProps marginRight(Object value) {
         this.marginRight = value;
         return this;
     }
     @JsIgnore
-    public CSSProps marginTop(Object value) {
+    public StyleProps marginTop(Object value) {
         this.marginTop = value;
         return this;
     }
     @JsIgnore
-    public CSSProps marqueeDirection(Object value) {
+    public StyleProps marqueeDirection(Object value) {
         this.marqueeDirection = value;
         return this;
     }
     @JsIgnore
-    public CSSProps marqueeStyle(Object value) {
+    public StyleProps marqueeStyle(Object value) {
         this.marqueeStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps mask(Object value) {
+    public StyleProps mask(Object value) {
         this.mask = value;
         return this;
     }
     @JsIgnore
-    public CSSProps maskBorder(Object value) {
+    public StyleProps maskBorder(Object value) {
         this.maskBorder = value;
         return this;
     }
     @JsIgnore
-    public CSSProps maskBorderRepeat(Object value) {
+    public StyleProps maskBorderRepeat(Object value) {
         this.maskBorderRepeat = value;
         return this;
     }
     @JsIgnore
-    public CSSProps maskBorderSlice(Object value) {
+    public StyleProps maskBorderSlice(Object value) {
         this.maskBorderSlice = value;
         return this;
     }
     @JsIgnore
-    public CSSProps maskBorderSource(Object value) {
+    public StyleProps maskBorderSource(Object value) {
         this.maskBorderSource = value;
         return this;
     }
     @JsIgnore
-    public CSSProps maskBorderWidth(Object value) {
+    public StyleProps maskBorderWidth(Object value) {
         this.maskBorderWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps maskClip(Object value) {
+    public StyleProps maskClip(Object value) {
         this.maskClip = value;
         return this;
     }
     @JsIgnore
-    public CSSProps maskOrigin(Object value) {
+    public StyleProps maskOrigin(Object value) {
         this.maskOrigin = value;
         return this;
     }
     @JsIgnore
-    public CSSProps maxFontSize(Object value) {
+    public StyleProps maxFontSize(Object value) {
         this.maxFontSize = value;
         return this;
     }
     @JsIgnore
-    public CSSProps maxHeight(Object value) {
+    public StyleProps maxHeight(Object value) {
         this.maxHeight = value;
         return this;
     }
     @JsIgnore
-    public CSSProps maxWidth(Object value) {
+    public StyleProps maxWidth(Object value) {
         this.maxWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps minWidth(Object value) {
+    public StyleProps minWidth(Object value) {
         this.minWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps outline(Object value) {
+    public StyleProps outline(Object value) {
         this.outline = value;
         return this;
     }
     @JsIgnore
-    public CSSProps outlineColor(Object value) {
+    public StyleProps outlineColor(Object value) {
         this.outlineColor = value;
         return this;
     }
     @JsIgnore
-    public CSSProps outlineOffset(Object value) {
+    public StyleProps outlineOffset(Object value) {
         this.outlineOffset = value;
         return this;
     }
     @JsIgnore
-    public CSSProps overflow(Object value) {
+    public StyleProps overflow(Object value) {
         this.overflow = value;
         return this;
     }
     @JsIgnore
-    public CSSProps overflowStyle(Object value) {
+    public StyleProps overflowStyle(Object value) {
         this.overflowStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps overflowX(Object value) {
+    public StyleProps overflowX(Object value) {
         this.overflowX = value;
         return this;
     }
     @JsIgnore
-    public CSSProps padding(Object value) {
+    public StyleProps padding(Object value) {
         this.padding = value;
         return this;
     }
     @JsIgnore
-    public CSSProps paddingBottom(Object value) {
+    public StyleProps paddingBottom(Object value) {
         this.paddingBottom = value;
         return this;
     }
     @JsIgnore
-    public CSSProps paddingLeft(Object value) {
+    public StyleProps paddingLeft(Object value) {
         this.paddingLeft = value;
         return this;
     }
     @JsIgnore
-    public CSSProps paddingRight(Object value) {
+    public StyleProps paddingRight(Object value) {
         this.paddingRight = value;
         return this;
     }
     @JsIgnore
-    public CSSProps paddingTop(Object value) {
+    public StyleProps paddingTop(Object value) {
         this.paddingTop = value;
         return this;
     }
     @JsIgnore
-    public CSSProps pageBreakAfter(Object value) {
+    public StyleProps pageBreakAfter(Object value) {
         this.pageBreakAfter = value;
         return this;
     }
     @JsIgnore
-    public CSSProps pageBreakBefore(Object value) {
+    public StyleProps pageBreakBefore(Object value) {
         this.pageBreakBefore = value;
         return this;
     }
     @JsIgnore
-    public CSSProps pageBreakInside(Object value) {
+    public StyleProps pageBreakInside(Object value) {
         this.pageBreakInside = value;
         return this;
     }
     @JsIgnore
-    public CSSProps pause(Object value) {
+    public StyleProps pause(Object value) {
         this.pause = value;
         return this;
     }
     @JsIgnore
-    public CSSProps pauseAfter(Object value) {
+    public StyleProps pauseAfter(Object value) {
         this.pauseAfter = value;
         return this;
     }
     @JsIgnore
-    public CSSProps pauseBefore(Object value) {
+    public StyleProps pauseBefore(Object value) {
         this.pauseBefore = value;
         return this;
     }
     @JsIgnore
-    public CSSProps perspective(Object value) {
+    public StyleProps perspective(Object value) {
         this.perspective = value;
         return this;
     }
     @JsIgnore
-    public CSSProps perspectiveOrigin(Object value) {
+    public StyleProps perspectiveOrigin(Object value) {
         this.perspectiveOrigin = value;
         return this;
     }
     @JsIgnore
-    public CSSProps pointerEvents(Object value) {
+    public StyleProps pointerEvents(Object value) {
         this.pointerEvents = value;
         return this;
     }
     @JsIgnore
-    public CSSProps position(Object value) {
+    public StyleProps position(Object value) {
         this.position = value;
         return this;
     }
     @JsIgnore
-    public CSSProps punctuationTrim(Object value) {
+    public StyleProps punctuationTrim(Object value) {
         this.punctuationTrim = value;
         return this;
     }
     @JsIgnore
-    public CSSProps quotes(Object value) {
+    public StyleProps quotes(Object value) {
         this.quotes = value;
         return this;
     }
     @JsIgnore
-    public CSSProps regionFragment(Object value) {
+    public StyleProps regionFragment(Object value) {
         this.regionFragment = value;
         return this;
     }
     @JsIgnore
-    public CSSProps restAfter(Object value) {
+    public StyleProps restAfter(Object value) {
         this.restAfter = value;
         return this;
     }
     @JsIgnore
-    public CSSProps restBefore(Object value) {
+    public StyleProps restBefore(Object value) {
         this.restBefore = value;
         return this;
     }
     @JsIgnore
-    public CSSProps right(Object value) {
+    public StyleProps right(Object value) {
         this.right = value;
         return this;
     }
     @JsIgnore
-    public CSSProps rubyAlign(Object value) {
+    public StyleProps rubyAlign(Object value) {
         this.rubyAlign = value;
         return this;
     }
     @JsIgnore
-    public CSSProps rubyPosition(Object value) {
+    public StyleProps rubyPosition(Object value) {
         this.rubyPosition = value;
         return this;
     }
     @JsIgnore
-    public CSSProps shapeImageThreshold(Object value) {
+    public StyleProps shapeImageThreshold(Object value) {
         this.shapeImageThreshold = value;
         return this;
     }
     @JsIgnore
-    public CSSProps shapeInside(Object value) {
+    public StyleProps shapeInside(Object value) {
         this.shapeInside = value;
         return this;
     }
     @JsIgnore
-    public CSSProps shapeMargin(Object value) {
+    public StyleProps shapeMargin(Object value) {
         this.shapeMargin = value;
         return this;
     }
     @JsIgnore
-    public CSSProps shapeOutside(Object value) {
+    public StyleProps shapeOutside(Object value) {
         this.shapeOutside = value;
         return this;
     }
     @JsIgnore
-    public CSSProps speak(Object value) {
+    public StyleProps speak(Object value) {
         this.speak = value;
         return this;
     }
     @JsIgnore
-    public CSSProps speakAs(Object value) {
+    public StyleProps speakAs(Object value) {
         this.speakAs = value;
         return this;
     }
     @JsIgnore
-    public CSSProps tabSize(Object value) {
+    public StyleProps tabSize(Object value) {
         this.tabSize = value;
         return this;
     }
     @JsIgnore
-    public CSSProps tableLayout(Object value) {
+    public StyleProps tableLayout(Object value) {
         this.tableLayout = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textAlign(Object value) {
+    public StyleProps textAlign(Object value) {
         this.textAlign = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textAlignLast(Object value) {
+    public StyleProps textAlignLast(Object value) {
         this.textAlignLast = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textDecoration(Object value) {
+    public StyleProps textDecoration(Object value) {
         this.textDecoration = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textDecorationColor(Object value) {
+    public StyleProps textDecorationColor(Object value) {
         this.textDecorationColor = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textDecorationLine(Object value) {
+    public StyleProps textDecorationLine(Object value) {
         this.textDecorationLine = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textDecorationLineThrough(Object value) {
+    public StyleProps textDecorationLineThrough(Object value) {
         this.textDecorationLineThrough = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textDecorationNone(Object value) {
+    public StyleProps textDecorationNone(Object value) {
         this.textDecorationNone = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textDecorationOverline(Object value) {
+    public StyleProps textDecorationOverline(Object value) {
         this.textDecorationOverline = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textDecorationSkip(Object value) {
+    public StyleProps textDecorationSkip(Object value) {
         this.textDecorationSkip = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textDecorationStyle(Object value) {
+    public StyleProps textDecorationStyle(Object value) {
         this.textDecorationStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textDecorationUnderline(Object value) {
+    public StyleProps textDecorationUnderline(Object value) {
         this.textDecorationUnderline = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textEmphasis(Object value) {
+    public StyleProps textEmphasis(Object value) {
         this.textEmphasis = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textEmphasisColor(Object value) {
+    public StyleProps textEmphasisColor(Object value) {
         this.textEmphasisColor = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textEmphasisStyle(Object value) {
+    public StyleProps textEmphasisStyle(Object value) {
         this.textEmphasisStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textHeight(Object value) {
+    public StyleProps textHeight(Object value) {
         this.textHeight = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textIndent(Object value) {
+    public StyleProps textIndent(Object value) {
         this.textIndent = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textJustifyTrim(Object value) {
+    public StyleProps textJustifyTrim(Object value) {
         this.textJustifyTrim = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textKashidaSpace(Object value) {
+    public StyleProps textKashidaSpace(Object value) {
         this.textKashidaSpace = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textLineThrough(Object value) {
+    public StyleProps textLineThrough(Object value) {
         this.textLineThrough = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textLineThroughColor(Object value) {
+    public StyleProps textLineThroughColor(Object value) {
         this.textLineThroughColor = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textLineThroughMode(Object value) {
+    public StyleProps textLineThroughMode(Object value) {
         this.textLineThroughMode = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textLineThroughStyle(Object value) {
+    public StyleProps textLineThroughStyle(Object value) {
         this.textLineThroughStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textLineThroughWidth(Object value) {
+    public StyleProps textLineThroughWidth(Object value) {
         this.textLineThroughWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textOverflow(Object value) {
+    public StyleProps textOverflow(Object value) {
         this.textOverflow = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textOverline(Object value) {
+    public StyleProps textOverline(Object value) {
         this.textOverline = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textOverlineColor(Object value) {
+    public StyleProps textOverlineColor(Object value) {
         this.textOverlineColor = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textOverlineMode(Object value) {
+    public StyleProps textOverlineMode(Object value) {
         this.textOverlineMode = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textOverlineStyle(Object value) {
+    public StyleProps textOverlineStyle(Object value) {
         this.textOverlineStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textOverlineWidth(Object value) {
+    public StyleProps textOverlineWidth(Object value) {
         this.textOverlineWidth = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textRendering(Object value) {
+    public StyleProps textRendering(Object value) {
         this.textRendering = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textScript(Object value) {
+    public StyleProps textScript(Object value) {
         this.textScript = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textShadow(Object value) {
+    public StyleProps textShadow(Object value) {
         this.textShadow = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textTransform(Object value) {
+    public StyleProps textTransform(Object value) {
         this.textTransform = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textUnderlinePosition(Object value) {
+    public StyleProps textUnderlinePosition(Object value) {
         this.textUnderlinePosition = value;
         return this;
     }
     @JsIgnore
-    public CSSProps textUnderlineStyle(Object value) {
+    public StyleProps textUnderlineStyle(Object value) {
         this.textUnderlineStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps top(Object value) {
+    public StyleProps top(Object value) {
         this.top = value;
         return this;
     }
     @JsIgnore
-    public CSSProps touchAction(Object value) {
+    public StyleProps touchAction(Object value) {
         this.touchAction = value;
         return this;
     }
     @JsIgnore
-    public CSSProps transform(Object value) {
+    public StyleProps transform(Object value) {
         this.transform = value;
         return this;
     }
     @JsIgnore
-    public CSSProps transformOrigin(Object value) {
+    public StyleProps transformOrigin(Object value) {
         this.transformOrigin = value;
         return this;
     }
     @JsIgnore
-    public CSSProps transformOriginZ(Object value) {
+    public StyleProps transformOriginZ(Object value) {
         this.transformOriginZ = value;
         return this;
     }
     @JsIgnore
-    public CSSProps transformStyle(Object value) {
+    public StyleProps transformStyle(Object value) {
         this.transformStyle = value;
         return this;
     }
     @JsIgnore
-    public CSSProps transition(Object value) {
+    public StyleProps transition(Object value) {
         this.transition = value;
         return this;
     }
     @JsIgnore
-    public CSSProps transitionDelay(Object value) {
+    public StyleProps transitionDelay(Object value) {
         this.transitionDelay = value;
         return this;
     }
     @JsIgnore
-    public CSSProps transitionDuration(Object value) {
+    public StyleProps transitionDuration(Object value) {
         this.transitionDuration = value;
         return this;
     }
     @JsIgnore
-    public CSSProps transitionProperty(Object value) {
+    public StyleProps transitionProperty(Object value) {
         this.transitionProperty = value;
         return this;
     }
     @JsIgnore
-    public CSSProps transitionTimingFunction(Object value) {
+    public StyleProps transitionTimingFunction(Object value) {
         this.transitionTimingFunction = value;
         return this;
     }
     @JsIgnore
-    public CSSProps unicodeBidi(Object value) {
+    public StyleProps unicodeBidi(Object value) {
         this.unicodeBidi = value;
         return this;
     }
     @JsIgnore
-    public CSSProps unicodeRange(Object value) {
+    public StyleProps unicodeRange(Object value) {
         this.unicodeRange = value;
         return this;
     }
     @JsIgnore
-    public CSSProps userFocus(Object value) {
+    public StyleProps userFocus(Object value) {
         this.userFocus = value;
         return this;
     }
     @JsIgnore
-    public CSSProps userInput(Object value) {
+    public StyleProps userInput(Object value) {
         this.userInput = value;
         return this;
     }
     @JsIgnore
-    public CSSProps verticalAlign(Object value) {
+    public StyleProps verticalAlign(Object value) {
         this.verticalAlign = value;
         return this;
     }
     @JsIgnore
-    public CSSProps visibility(Object value) {
+    public StyleProps visibility(Object value) {
         this.visibility = value;
         return this;
     }
     @JsIgnore
-    public CSSProps voiceBalance(Object value) {
+    public StyleProps voiceBalance(Object value) {
         this.voiceBalance = value;
         return this;
     }
     @JsIgnore
-    public CSSProps voiceDuration(Object value) {
+    public StyleProps voiceDuration(Object value) {
         this.voiceDuration = value;
         return this;
     }
     @JsIgnore
-    public CSSProps voiceFamily(Object value) {
+    public StyleProps voiceFamily(Object value) {
         this.voiceFamily = value;
         return this;
     }
     @JsIgnore
-    public CSSProps voicePitch(Object value) {
+    public StyleProps voicePitch(Object value) {
         this.voicePitch = value;
         return this;
     }
     @JsIgnore
-    public CSSProps voiceRange(Object value) {
+    public StyleProps voiceRange(Object value) {
         this.voiceRange = value;
         return this;
     }
     @JsIgnore
-    public CSSProps voiceRate(Object value) {
+    public StyleProps voiceRate(Object value) {
         this.voiceRate = value;
         return this;
     }
     @JsIgnore
-    public CSSProps voiceStress(Object value) {
+    public StyleProps voiceStress(Object value) {
         this.voiceStress = value;
         return this;
     }
     @JsIgnore
-    public CSSProps voiceVolume(Object value) {
+    public StyleProps voiceVolume(Object value) {
         this.voiceVolume = value;
         return this;
     }
     @JsIgnore
-    public CSSProps whiteSpace(Object value) {
+    public StyleProps whiteSpace(Object value) {
         this.whiteSpace = value;
         return this;
     }
     @JsIgnore
-    public CSSProps whiteSpaceTreatment(Object value) {
+    public StyleProps whiteSpaceTreatment(Object value) {
         this.whiteSpaceTreatment = value;
         return this;
     }
     @JsIgnore
-    public CSSProps width(Object value) {
+    public StyleProps width(Object value) {
         this.width = value;
         return this;
     }
     @JsIgnore
-    public CSSProps wordBreak(Object value) {
+    public StyleProps wordBreak(Object value) {
         this.wordBreak = value;
         return this;
     }
     @JsIgnore
-    public CSSProps wordSpacing(Object value) {
+    public StyleProps wordSpacing(Object value) {
         this.wordSpacing = value;
         return this;
     }
     @JsIgnore
-    public CSSProps wordWrap(Object value) {
+    public StyleProps wordWrap(Object value) {
         this.wordWrap = value;
         return this;
     }
     @JsIgnore
-    public CSSProps wrapFlow(Object value) {
+    public StyleProps wrapFlow(Object value) {
         this.wrapFlow = value;
         return this;
     }
     @JsIgnore
-    public CSSProps wrapMargin(Object value) {
+    public StyleProps wrapMargin(Object value) {
         this.wrapMargin = value;
         return this;
     }
     @JsIgnore
-    public CSSProps wrapOption(Object value) {
+    public StyleProps wrapOption(Object value) {
         this.wrapOption = value;
         return this;
     }
     @JsIgnore
-    public CSSProps writingMode(Object value) {
+    public StyleProps writingMode(Object value) {
         this.writingMode = value;
         return this;
     }

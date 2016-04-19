@@ -21,7 +21,7 @@ public class Utils {
 
         // SVGAttributes
 //        generateProps("SVGProps", true, "/Users/clay/Repos/untraceable/untraceable/io.clickhandler.web/src/main/java/move/generator/SVGAttributes.txt");
-//        generateProps("CSSProps", false, "/Users/clay/Repos/untraceable/untraceable/io.clickhandler.web/src/main/java/move/generator/CSSProperties.txt");
+//        generateProps("StyleProps", false, "/Users/clay/Repos/untraceable/untraceable/io.clickhandler.web/src/main/java/move/generator/CSSProperties.txt");
     }
 
     public static void generateProps(String className, boolean isGeneric, String file) throws IOException {

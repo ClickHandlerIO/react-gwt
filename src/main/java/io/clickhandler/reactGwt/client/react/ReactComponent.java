@@ -21,11 +21,6 @@ public interface ReactComponent<P, S> {
     @JsProperty
     P getProps();
 
-    @JsOverlay
-    default P props() {
-        return getProps();
-    }
-
     @JsProperty
     S getState();
 

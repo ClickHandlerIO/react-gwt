@@ -233,7 +233,7 @@ public class HTMLProps<T> extends DOMProps<T> {
     @JsProperty
     public Object step;
     @JsProperty
-    public CSSProps style;
+    public StyleProps style;
     @JsProperty
     public String summary;
     @JsProperty
@@ -1000,16 +1000,16 @@ public class HTMLProps<T> extends DOMProps<T> {
     }
 
     @JsIgnore
-    public HTMLProps<T> style(CSSProps value) {
+    public HTMLProps<T> style(StyleProps value) {
         this.style = value;
         return this;
     }
 
     @JsIgnore
-    public HTMLProps<T> style(Func.Run1<CSSProps> callback) {
+    public HTMLProps<T> style(Func.Run1<StyleProps> callback) {
         if (callback == null)
             return this;
-        this.style = new CSSProps();
+        this.style = new StyleProps();
         callback.run(this.style);
         return this;
     }
