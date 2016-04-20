@@ -36,7 +36,8 @@ public abstract class Component<P, S> {
         addChildContextTypes(childContextTypes);*/
     }
 
-    private ReactClass getReactClass() {
+    @JsIgnore
+    private ReactClass<P> getReactClass() {
         if (reactClass == null) {
             reactClass = (ReactClass<P>) React.createClass(this);
         }
@@ -47,18 +48,22 @@ public abstract class Component<P, S> {
      * Factory Methods
      */
 
+    @JsIgnore
     public ReactElement createElement() {
         return React.createElement(getReactClass(), Jso.create());
     }
 
+    @JsIgnore
     public ReactElement createElement(Object... children) {
         return React.createElement(getReactClass(), Jso.create(), children);
     }
 
+    @JsIgnore
     public ReactElement createElement(P props) {
         return React.createElement(getReactClass(), props);
     }
 
+    @JsIgnore
     public ReactElement createElement(Func.Run1<P> propsCallback) {
         final P props = Jso.create();
         if (propsCallback != null) {
@@ -67,6 +72,7 @@ public abstract class Component<P, S> {
         return React.createElement(getReactClass(), props);
     }
 
+    @JsIgnore
     public ReactElement createElement(Func.Run1<P> propsCallback, Object... children) {
         final P props = Jso.create();
         if (propsCallback != null) {
@@ -75,6 +81,7 @@ public abstract class Component<P, S> {
         return React.createElement(getReactClass(), props, children);
     }
 
+    @JsIgnore
     public ReactElement createElement(Func.Run2<P, DOM.ChildList> callback) {
         final P props = Jso.create();
         final DOM.ChildList childList = new DOM.ChildList();
@@ -84,28 +91,34 @@ public abstract class Component<P, S> {
         return React.createElement(getReactClass(), props, childList.toArray());
     }
 
-    // Shorthand syntax - todo test out different ideas
+    // Shorthand syntax
 
+    @JsIgnore
     public ReactElement $() {
         return createElement();
     }
 
+    @JsIgnore
     public ReactElement $(Object... children) {
         return createElement(children);
     }
 
+    @JsIgnore
     public ReactElement $(P props) {
         return createElement(props);
     }
 
+    @JsIgnore
     public ReactElement $(Func.Run1<P> propsCallback) {
         return createElement(propsCallback);
     }
 
+    @JsIgnore
     public ReactElement $(Func.Run1<P> propsCallback, Object... children) {
         return createElement(propsCallback, children);
     }
 
+    @JsIgnore
     public ReactElement $(Func.Run2<P, DOM.ChildList> callback) {
         return createElement(callback);
     }
@@ -115,16 +128,25 @@ public abstract class Component<P, S> {
      */
 
     public Func.Call<P> getDefaultProps = Func.bind(this::getDefaultProps);
+
     public Func.Call<S> getInitialState = Func.bind(this::getInitialState);
+
     public Func.Run componentWillMount = Func.bind(this::componentWillMountInternal);
+
     public Func.Run componentDidMount = Func.bind(this::componentDidMountInternal);
+
     public Func.Run1<P> componentWillReceiveProps = Func.bind(this::componentWillReceivePropsInternal);
+
     public Func.Call2<Boolean, P, S> shouldComponentUpdate = Func.bind(this::shouldComponentUpdateInternal);
+
     public Func.Run2<P, S> componentWillUpdate = Func.bind(this::componentWillUpdateInternal);
+
     @JsProperty(name = "render") // todo test if we need the property name declaration
     public Func.Call<ReactElement> render = Func.bind(this::renderInternal);
+
     @JsProperty(name = "componentDidUpdate") // todo test if we need the property name declaration
     public Func.Run2<P, S> componentDidUpdate = Func.bind(this::componentDidUpdateInternal);
+
     public Func.Run componentWillUnmount = Func.bind(this::componentWillUnmountInternal);
 
     // Internal pass through
@@ -160,7 +182,7 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     protected void componentWillUpdateInternal(final ReactComponent<P, S> $this, P nextProps, S nextState) {
-        componentWillUpdate($this, $this.getProps(), nextProps, $this.state(), nextState);
+        componentWillUpdate($this, nextProps, nextState);
     }
 
     @JsIgnore
@@ -204,13 +226,13 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     private void componentDidUpdateInternal(final ReactComponent<P, S> $this, P prevProps, S prevState) {
-        componentDidUpdate($this, prevProps, $this.getProps(), prevState, $this.state());
+        componentDidUpdate($this, prevProps, prevState);
     }
 
     @JsIgnore
     protected void componentWillUnmountInternal(final ReactComponent<P, S> $this) {
         try {
-            $this.cleanup();
+            $this.eventRegistrationCleanup();
         } finally {
             componentWillUnmount($this);
         }
@@ -250,14 +272,14 @@ public abstract class Component<P, S> {
     }
 
     @JsIgnore
-    protected void componentWillUpdate(ReactComponent<P, S> $this, P curProps, P nextProps, S curState, S nextState) {
+    protected void componentWillUpdate(ReactComponent<P, S> $this, P nextProps, S nextState) {
     }
 
     @JsIgnore
     protected abstract ReactElement render(final ReactComponent<P, S> $this);
 
     @JsIgnore
-    protected void componentDidUpdate(final ReactComponent<P, S> $this, P prevProps, P curProps, S prevState, S curState) {
+    protected void componentDidUpdate(final ReactComponent<P, S> $this, P prevProps, S prevState) {
     }
 
     @JsIgnore

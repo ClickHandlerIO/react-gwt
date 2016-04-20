@@ -22,9 +22,9 @@ public class Ref<T> {
         this.name = "$$" + name;
     }
 
-    public static <T> Ref<T> make(String name) {
-        return new Ref<>(name);
-    }
+//    public static <T> Ref<T> make(String name) {
+//        return new Ref<>(name);
+//    }
 
     public static <T> Ref<T> make() {
         return new Ref<>(String.valueOf(id++));
@@ -43,14 +43,17 @@ public class Ref<T> {
         return Reflection.get(Reflection.get($this, "refs"), name);
     }
 
-    public void get(ReactComponent $this, Func.Run1<T> callback) {
-        final T ref = get($this);
-        if (callback != null && ref != null) {
-            callback.run(ref);
-        }
-    }
-
     public void set(ReactComponent $this, T value) {
         Reflection.set($this, name, value);
     }
+
+    // todo is this helpful? dont think so... just execute code after getting the ref
+//    public void get(ReactComponent $this, Func.Run1<T> callback) {
+//        final T ref = get($this);
+//        if (callback != null && ref != null) {
+//            callback.run(ref);
+//        }
+//    }
+
+
 }

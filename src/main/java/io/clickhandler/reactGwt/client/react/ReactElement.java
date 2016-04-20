@@ -19,7 +19,7 @@ public interface ReactElement<T, P extends BaseProps> {
     Object getKey();
 
     @JsProperty
-    Object getRef();
+    Object getRef(); // todo ?
 
-    void setRef(Func.Call1<Object, Object> callback);
+    void setRef(Func.Call1<Object, Object> callback); // todo ?
 }

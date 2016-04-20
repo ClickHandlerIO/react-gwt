@@ -1,91 +1,107 @@
 package io.clickhandler.reactGwt.client.react;
 
 import io.clickhandler.reactGwt.client.Func;
-import io.clickhandler.reactGwt.client.Jso;
-import io.clickhandler.reactGwt.client.Reflection;
 import io.clickhandler.reactGwt.client.dom.DOM;
 
-/**
- *
- * @param <P>
- */
+
 public abstract class ExternalComponent<P> {
 
     public ExternalComponent() {
     }
 
-    protected void initProps(P props) {
+    protected abstract ReactClass<P> getReactClass();
+
+    /*
+     * Factory Methods
+     */
+
+    public ReactElement createElement() {
+        return React.createElement(getReactClass(), getReactClass().getDefaultProps());
     }
 
-    protected abstract ReactClass<P> reactClass();
+    public ReactElement createElement(Object... children) {
+        return React.createElement(getReactClass(), getReactClass().getDefaultProps(), children);
+    }
 
-    protected P defaultProps() {
+    public ReactElement createElement(P props) {
+        return React.createElement(getReactClass(), props);
+    }
+
+    public ReactElement createElement(Func.Run1<P> propsCallback) {
+        final P props = getReactClass().getDefaultProps();
+        if (propsCallback != null) {
+            propsCallback.run(props);
+        }
+        return React.createElement(getReactClass(), props);
+    }
+
+    public ReactElement createElement(Func.Run1<P> propsCallback, Object... children) {
+        final P props = getReactClass().getDefaultProps();
+        if (propsCallback != null) {
+            propsCallback.run(props);
+        }
+        return React.createElement(getReactClass(), props, children);
+    }
+
+    public ReactElement createElement(Func.Run2<P, DOM.ChildList> callback) {
+        final P props = getReactClass().getDefaultProps();
+        final DOM.ChildList childList = new DOM.ChildList();
+        if (callback != null) {
+            callback.run(props, childList);
+        }
+        return React.createElement(getReactClass(), props, childList.toArray());
+    }
+
+    // Shorthand syntax
+
+    public ReactElement $() {
+        return createElement();
+    }
+
+    public ReactElement $(Object... children) {
+        return createElement(children);
+    }
+
+    public ReactElement $(P props) {
+        return createElement(props);
+    }
+
+    public ReactElement $(Func.Run1<P> propsCallback) {
+        return createElement(propsCallback);
+    }
+
+    public ReactElement $(Func.Run1<P> propsCallback, Object... children) {
+        return createElement(propsCallback, children);
+    }
+
+    public ReactElement $(Func.Run2<P, DOM.ChildList> callback) {
+        return createElement(callback);
+    }
+
+    /*
+     * Remove this stuff?
+     */
+
+    // needed ?
+//    protected void initProps(P props) {
+//    }
+
+    /*protected P defaultProps() {
         final P props = Jso.create();
         try {
-            initProps(props);
-            Reflection.assign(props, reactClass().getDefaultProps());
-            applyKey(props);
+//            initProps(props);
+            Reflection.assign(props, getReactClass().getDefaultProps());
+//            applyKey(props); // todo needed?
         } catch (Throwable e) {
-            // Ignore.
+            Browser.getWindow().getConsole().log(e);
         }
         return props;
-    }
+    }*/
 
-    protected void applyKey(P props) {
+    /*protected void applyKey(P props) {
         Object key = Reflection.get(props, "key");
         if (key == null) {
             Reflection.set(props, "key", io.clickhandler.reactGwt.client.react.ChildCounter.get().newKey());
         }
-    }
-
-    public ReactElement $() {
-        return io.clickhandler.reactGwt.client.react.React.createElement(reactClass(), defaultProps());
-    }
-
-    public ReactElement $(Object... children) {
-        return io.clickhandler.reactGwt.client.react.React.createElement(reactClass(), defaultProps(), children);
-    }
-
-    public ReactElement $(Func.Run1<P> propsCallback) {
-        P props = defaultProps();
-        if (props == null) props = Jso.create();
-        if (propsCallback != null) {
-            propsCallback.run(props);
-        }
-        return io.clickhandler.reactGwt.client.react.React.createElement(reactClass(), props);
-    }
-
-    public ReactElement $(Func.Run1<P> propsCallback, Func.Run1<DOM.ChildList> childCallback) {
-        P props = defaultProps();
-        if (props == null) props = Jso.create();
-        if (propsCallback != null) {
-            propsCallback.run(props);
-        }
-
-        final DOM.ChildList childList = new DOM.ChildList();
-        if (childCallback != null) {
-            childCallback.run(childList);
-        }
-
-        return io.clickhandler.reactGwt.client.react.React.createElement(reactClass(), props, childList.toArray());
-    }
-
-    public ReactElement $(Func.Run1<P> propsCallback, Object... children) {
-        P props = defaultProps();
-        if (props == null) props = Jso.create();
-        if (propsCallback != null) {
-            propsCallback.run(props);
-        }
-        return io.clickhandler.reactGwt.client.react.React.createElement(reactClass(), props, children);
-    }
-
-    public ReactElement $$(Func.Run1<DOM.ChildList> childCallback) {
-        P props = defaultProps();
-        if (props == null) props = Jso.create();
-        final DOM.ChildList childList = new DOM.ChildList();
-        if (childCallback != null) {
-            childCallback.run(childList);
-        }
-        return io.clickhandler.reactGwt.client.react.React.createElement(reactClass(), props, childList.toArray());
-    }
+    }*/
 }

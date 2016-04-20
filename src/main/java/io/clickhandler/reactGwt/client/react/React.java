@@ -3,7 +3,7 @@ package io.clickhandler.reactGwt.client.react;
 import jsinterop.annotations.JsMethod;
 
 /**
- *
+ * TODO clean up JsInterop
  */
 public class React {
     public static final String BUS = "$bus$";
@@ -21,15 +21,6 @@ public class React {
     @JsMethod(namespace = "React", name = "createElement")
     public static native ReactElement createElement(Object component, Object props, String text);
 
-    @JsMethod(namespace = "React", name = "createElement")
-    public static native ReactElement createElement0(Object component, Object props, Object children);
-
-    /**
-     * @param component
-     * @param props
-     * @param children
-     * @return
-     */
     @JsMethod(namespace = "React", name = "createElement")
     public static native ReactElement createElement(Object component, Object props, Object... children);
 
