@@ -5,7 +5,7 @@ import io.clickhandler.reactGwt.client.Func;
 import io.clickhandler.reactGwt.client.Reflection;
 
 /**
- *
+ * TODO finish going through this stuff see what is required
  */
 public class Ref<T> {
     private final static String INIT_PROP_NAME = "$$refinit$$";

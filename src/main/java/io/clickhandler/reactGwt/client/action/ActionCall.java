@@ -15,10 +15,10 @@ import javax.inject.Provider;
 public class ActionCall<IN, OUT> implements HandlerRegistration {
     HandlerRegistration reg;
     private IN request;
-    private io.clickhandler.reactGwt.client.action.ErrorCallback errorCallback;
-    private io.clickhandler.reactGwt.client.action.ResponseCallback<OUT> response;
+    private ErrorCallback errorCallback;
+    private ResponseCallback<OUT> response;
     private Func.Run willSend;
-    private io.clickhandler.reactGwt.client.action.AlwaysCallback alwaysCallback;
+    private AlwaysCallback alwaysCallback;
     private boolean wasDispatched;
     private Func.Run1<IN> dispatch;
     private Func.Run disposedCallback;
