@@ -25,6 +25,11 @@ public interface ReactComponent<P, S> {
         return ActionCall.create(getBus(), action);
     }
 
+    @JsOverlay
+    default <T> T getProperty(String name) {
+        return Reflection.get(this, name);
+    }
+
     /*
      * State
      */
@@ -140,14 +145,4 @@ public interface ReactComponent<P, S> {
     default <T> void publish(String name, T event) {
         getBus().publish(name, event);
     }
-
-    /*
-     * Remove this stuff  ?
-     */
-
-    // todo use this at all? - probably should be in a util instead?
-    /*@JsOverlay
-    default <T> T getProperty(String name) {
-        return Reflection.get(this, name);
-    }*/
 }

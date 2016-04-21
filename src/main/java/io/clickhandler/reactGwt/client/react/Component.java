@@ -37,7 +37,7 @@ public abstract class Component<P, S> {
     }
 
     @JsIgnore
-    private ReactClass<P> getReactClass() {
+    public ReactClass<P> getReactClass() {
         if (reactClass == null) {
             reactClass = (ReactClass<P>) React.createClass(this);
         }
