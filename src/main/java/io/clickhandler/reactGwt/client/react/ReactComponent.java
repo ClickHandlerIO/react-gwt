@@ -16,8 +16,10 @@ public interface ReactComponent<P, S> {
     @JsProperty(name = React.BUS)
     BusDelegate getBus();
 
+    @JsProperty
     P getProps();
 
+    @JsProperty
     S getState();
 
     @JsOverlay

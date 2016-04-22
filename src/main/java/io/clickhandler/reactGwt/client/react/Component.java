@@ -30,10 +30,9 @@ public abstract class Component<P, S> {
 
     public Component() {
         displayName = getClass().getSimpleName();
-
         // todo context stuff needed?
-        /*addContextTypes(contextTypes);
-        addChildContextTypes(childContextTypes);*/
+        addContextTypes(contextTypes);
+        addChildContextTypes(childContextTypes);
     }
 
     @JsIgnore
@@ -50,22 +49,27 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     public ReactElement createElement() {
-        return React.createElement(getReactClass(), Jso.create());
+        return React.createElement(getReactClass(), createKeyedProps());
     }
 
     @JsIgnore
     public ReactElement createElement(Object... children) {
-        return React.createElement(getReactClass(), Jso.create(), children);
+        return React.createElement(getReactClass(), createKeyedProps(), children);
     }
 
     @JsIgnore
     public ReactElement createElement(P props) {
+        if (props == null) {
+          props = createKeyedProps();
+        } else if (Reflection.get(props, "key") == null) {
+            Reflection.set(props, "key", ChildCounter.get().newKey());
+        }
         return React.createElement(getReactClass(), props);
     }
 
     @JsIgnore
     public ReactElement createElement(Func.Run1<P> propsCallback) {
-        final P props = Jso.create();
+        final P props = createKeyedProps();
         if (propsCallback != null) {
             propsCallback.run(props);
         }
@@ -74,7 +78,7 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     public ReactElement createElement(Func.Run1<P> propsCallback, Object... children) {
-        final P props = Jso.create();
+        final P props = createKeyedProps();
         if (propsCallback != null) {
             propsCallback.run(props);
         }
@@ -83,12 +87,21 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     public ReactElement createElement(Func.Run2<P, DOM.ChildList> callback) {
-        final P props = Jso.create();
+        final P props = createKeyedProps();
         final DOM.ChildList childList = new DOM.ChildList();
         if (callback != null) {
             callback.run(props, childList);
         }
         return React.createElement(getReactClass(), props, childList.toArray());
+    }
+
+    @JsIgnore
+    private P createKeyedProps() {
+        final P props = Jso.create();
+        if (Reflection.get(props, "key") == null) {
+            Reflection.set(props, "key", ChildCounter.get().newKey());
+        }
+        return props;
     }
 
     // Shorthand syntax
@@ -176,17 +189,17 @@ public abstract class Component<P, S> {
     }
 
     @JsIgnore
-    protected boolean shouldComponentUpdateInternal(final ReactComponent<P, S> $this, P nextProps, S nextState) {
+    private boolean shouldComponentUpdateInternal(final ReactComponent<P, S> $this, P nextProps, S nextState) {
         return shouldComponentUpdate($this, nextProps, nextState);
     }
 
     @JsIgnore
-    protected void componentWillUpdateInternal(final ReactComponent<P, S> $this, P nextProps, S nextState) {
+    private void componentWillUpdateInternal(final ReactComponent<P, S> $this, P nextProps, S nextState) {
         componentWillUpdate($this, nextProps, nextState);
     }
 
     @JsIgnore
-    protected ReactElement renderInternal(final ReactComponent<P, S> $this) {
+    private ReactElement renderInternal(final ReactComponent<P, S> $this) {
 
         // TODO do we need this child key for all components?
         /*P props = $this.getProps();
@@ -230,7 +243,7 @@ public abstract class Component<P, S> {
     }
 
     @JsIgnore
-    protected void componentWillUnmountInternal(final ReactComponent<P, S> $this) {
+    private void componentWillUnmountInternal(final ReactComponent<P, S> $this) {
         try {
             $this.eventRegistrationCleanup();
         } finally {
@@ -290,23 +303,6 @@ public abstract class Component<P, S> {
      * Old / TODO Remove
      */
 
-    // todo look at getting rid of / renaming this. can be accidentally used instead of $this.props()
-    // dont think we need to key everything - probably expose the ChildCounter.get().newKey() as a better named utility
-    /*private P props() {
-        // Create Props.
-        final P props = createProps();
-
-        // Set key manually.
-        Object key = Reflection.get(props, "key");
-        if (key == null) {
-            Reflection.set(props, "key", ChildCounter.get().newKey());
-        }
-
-        // Return props.
-        return props;
-    }*/
-
-
     /*// No Usages
     @JsIgnore
     public static <T> T create() {
@@ -330,15 +326,15 @@ public abstract class Component<P, S> {
      * TODO look at getting rid of this / what is working or not
      */
 
-    /*public Func.Call getChildContext = this::getChildContext;
+    public Func.Call getChildContext = this::getChildContext;
 
     public ContextTypes contextTypes = new ContextTypes();
 
     public ContextTypes childContextTypes = new ContextTypes();
 
-    protected native Object getChildContext() *//*-{
+    protected native Object getChildContext() /*-{
         return {};
-    }-*//*;
+    }-*/;
 
     @JsIgnore
     protected void addContextTypes(ContextTypes contextTypes) {
@@ -359,5 +355,5 @@ public abstract class Component<P, S> {
         public <T> void set(String name, T value) {
             Reflection.set(this, name, value);
         }
-    }*/
+    }
 }
