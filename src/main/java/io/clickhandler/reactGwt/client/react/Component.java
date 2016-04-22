@@ -59,7 +59,7 @@ public abstract class Component<P, S> {
     @JsIgnore
     public ReactElement createElement(P props) {
         if (props == null) {
-          props = createKeyedProps();
+            props = createKeyedProps();
         } else if (Reflection.get(props, "key") == null) {
             Reflection.set(props, "key", ChildCounter.get().newKey());
         }
@@ -97,9 +97,9 @@ public abstract class Component<P, S> {
     @JsIgnore
     private P createKeyedProps() {
         final P props = Jso.create();
-        if (Reflection.get(props, "key") == null) {
-            Reflection.set(props, "key", ChildCounter.get().newKey());
-        }
+//        if (Reflection.get(props, "key") == null) {
+//            Reflection.set(props, "key", ChildCounter.get().newKey());
+//        }
         return props;
     }
 
@@ -200,10 +200,10 @@ public abstract class Component<P, S> {
     private ReactElement renderInternal(final ReactComponent<P, S> $this) {
 
         // TODO do we need this child key for all components?
-        /*P props = $this.getProps();
-        ChildCounter.get().scope();*/
-//        try {
-            /*if (props != null) {
+        P props = $this.getProps();
+        ChildCounter.get().scope();
+        try {
+            if (props != null) {
                 // Fix children not having a "key" set.
                 Object children = Reflection.get(props, "children");
                 if (children != null) {
@@ -227,12 +227,12 @@ public abstract class Component<P, S> {
                         }
                     }
                 }
-            }*/
+            }
 
-        return render($this);
-        /*} finally {
+            return render($this);
+        } finally {
             ChildCounter.get().pop(); //  needed?
-        }*/
+        }
     }
 
     @JsIgnore

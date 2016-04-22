@@ -1,7 +1,9 @@
 package io.clickhandler.reactGwt.client.react;
 
+import elemental.client.Browser;
 import io.clickhandler.reactGwt.client.Func;
 import io.clickhandler.reactGwt.client.Jso;
+import io.clickhandler.reactGwt.client.Reflection;
 import io.clickhandler.reactGwt.client.dom.DOM;
 
 
@@ -16,7 +18,9 @@ public abstract class ExternalComponent<P> {
         if (props == null) {
             props = Jso.create();
         }
-        // todo
+//        if (Reflection.get(props, "key") == null) {
+//            Reflection.set(props, "key", ChildCounter.get().newKey());
+//        }
         return props;
     }
 
@@ -90,25 +94,25 @@ public abstract class ExternalComponent<P> {
      * Remove this stuff?
      */
     // needed ?
-//    protected void initProps(P props) {
-//    }
+    protected void initProps(P props) {
+    }
 
-    /*protected P defaultProps() {
+    protected P defaultProps() {
         final P props = Jso.create();
         try {
-//            initProps(props);
+            initProps(props);
             Reflection.assign(props, getReactClass().getDefaultProps());
-//            applyKey(props); // todo needed?
+            applyKey(props); // todo needed?
         } catch (Throwable e) {
             Browser.getWindow().getConsole().log(e);
         }
         return props;
-    }*/
+    }
 
-    /*protected void applyKey(P props) {
+    protected void applyKey(P props) {
         Object key = Reflection.get(props, "key");
         if (key == null) {
             Reflection.set(props, "key", io.clickhandler.reactGwt.client.react.ChildCounter.get().newKey());
         }
-    }*/
+    }
 }
