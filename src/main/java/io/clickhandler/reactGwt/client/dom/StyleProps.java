@@ -4,9 +4,7 @@ import jsinterop.annotations.JsIgnore;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-/**
- *
- */
+
 @JsType
 public class StyleProps {
     @JsProperty

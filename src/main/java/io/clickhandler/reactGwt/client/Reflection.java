@@ -8,7 +8,7 @@ public class Reflection {
         return {};
     }-*/;
 
-    public static native void iterate(Object obj, io.clickhandler.reactGwt.client.Func.Run2<String, Object> callback) /*-{
+    public static native void iterate(Object obj, Func.Run2<String, Object> callback) /*-{
         if (!callback || !obj) {
             return;
         }

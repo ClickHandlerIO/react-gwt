@@ -3,9 +3,7 @@ package io.clickhandler.reactGwt.client.dom;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-/**
- *
- */
+
 @JsType
 public class HTMLString {
     @JsProperty

@@ -1,6 +1,7 @@
 package io.clickhandler.reactGwt.client.react;
 
 import io.clickhandler.reactGwt.client.Func;
+import io.clickhandler.reactGwt.client.Jso;
 import io.clickhandler.reactGwt.client.dom.DOM;
 
 
@@ -11,24 +12,31 @@ public abstract class ExternalComponent<P> {
 
     protected abstract ReactClass<P> getReactClass();
 
+    private P keyedProps(P props) {
+        if (props == null) {
+            props = Jso.create();
+        }
+        // todo
+        return props;
+    }
+
     /*
      * Factory Methods
      */
-
     public ReactElement createElement() {
-        return React.createElement(getReactClass(), getReactClass().getDefaultProps());
+        return React.createElement(getReactClass(), keyedProps(getReactClass().getDefaultProps()));
     }
 
     public ReactElement createElement(Object... children) {
-        return React.createElement(getReactClass(), getReactClass().getDefaultProps(), children);
+        return React.createElement(getReactClass(), keyedProps(getReactClass().getDefaultProps()), children);
     }
 
     public ReactElement createElement(P props) {
-        return React.createElement(getReactClass(), props);
+        return React.createElement(getReactClass(), keyedProps(props));
     }
 
     public ReactElement createElement(Func.Run1<P> propsCallback) {
-        final P props = getReactClass().getDefaultProps();
+        final P props = keyedProps(getReactClass().getDefaultProps());
         if (propsCallback != null) {
             propsCallback.run(props);
         }
@@ -36,7 +44,7 @@ public abstract class ExternalComponent<P> {
     }
 
     public ReactElement createElement(Func.Run1<P> propsCallback, Object... children) {
-        final P props = getReactClass().getDefaultProps();
+        final P props = keyedProps(getReactClass().getDefaultProps());
         if (propsCallback != null) {
             propsCallback.run(props);
         }
@@ -44,7 +52,7 @@ public abstract class ExternalComponent<P> {
     }
 
     public ReactElement createElement(Func.Run2<P, DOM.ChildList> callback) {
-        final P props = getReactClass().getDefaultProps();
+        final P props = keyedProps(getReactClass().getDefaultProps());
         final DOM.ChildList childList = new DOM.ChildList();
         if (callback != null) {
             callback.run(props, childList);
@@ -81,7 +89,6 @@ public abstract class ExternalComponent<P> {
     /*
      * Remove this stuff?
      */
-
     // needed ?
 //    protected void initProps(P props) {
 //    }

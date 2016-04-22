@@ -35,7 +35,6 @@ public interface ReactComponent<P, S> {
     /*
      * State
      */
-
     void setState(S state);
 
     void setState(S state, Func.Run callback);
@@ -88,7 +87,6 @@ public interface ReactComponent<P, S> {
     /*
      * Ref
      */
-
     // todo use this at all?
     @JsOverlay
     default <T> T ref(Ref<T> ref) {
@@ -104,7 +102,6 @@ public interface ReactComponent<P, S> {
     /*
      * Event subscribe / publish
      */
-
     @JsOverlay
     default void eventRegistrationCleanup() {
         final BusDelegate bus = getBus();

@@ -10,7 +10,7 @@ public class Try {
      *
      * @param callback
      */
-    public static void later(io.clickhandler.reactGwt.client.Func.Run callback) {
+    public static void later(Func.Run callback) {
         if (callback == null) {
             return;
         }
@@ -27,7 +27,7 @@ public class Try {
         }.schedule(0);
     }
 
-    public static void later(int millis, io.clickhandler.reactGwt.client.Func.Run callback) {
+    public static void later(int millis, Func.Run callback) {
         if (callback == null) {
             return;
         }
@@ -44,7 +44,7 @@ public class Try {
         }.schedule(millis);
     }
 
-    public static void silent(io.clickhandler.reactGwt.client.Func.Run callback) {
+    public static void silent(Func.Run callback) {
         if (callback == null) {
             return;
         }
@@ -55,7 +55,7 @@ public class Try {
         }
     }
 
-    public static <A> void silent(io.clickhandler.reactGwt.client.Func.Run1<A> callback, A arg) {
+    public static <A> void silent(Func.Run1<A> callback, A arg) {
         if (callback == null) {
             return;
         }
@@ -66,7 +66,7 @@ public class Try {
         }
     }
 
-    public static RunResult run(io.clickhandler.reactGwt.client.Func.Run callback) {
+    public static RunResult run(Func.Run callback) {
         if (callback == null) {
             return new RunResult(null);
         }
@@ -79,7 +79,7 @@ public class Try {
         }
     }
 
-    public static <T> CallResult<T> call(io.clickhandler.reactGwt.client.Func.Call<T> callback) {
+    public static <T> CallResult<T> call(Func.Call<T> callback) {
         if (callback == null) {
             return new CallResult<>(null, null);
         }
@@ -112,14 +112,14 @@ public class Try {
             this.e = e;
         }
 
-        public CallResult<T> success(io.clickhandler.reactGwt.client.Func.Run1<T> success) {
+        public CallResult<T> success(Func.Run1<T> success) {
             if (e == null && success != null) {
                 success.run(result);
             }
             return this;
         }
 
-        public CallResult<T> failure(io.clickhandler.reactGwt.client.Func.Run1<Throwable> failure) {
+        public CallResult<T> failure(Func.Run1<Throwable> failure) {
             if (e != null && failure != null) {
                 failure.run(e);
             }
@@ -134,14 +134,14 @@ public class Try {
             this.e = e;
         }
 
-        public RunResult success(io.clickhandler.reactGwt.client.Func.Run success) {
+        public RunResult success(Func.Run success) {
             if (e == null && success != null) {
                 success.run();
             }
             return this;
         }
 
-        public RunResult failure(io.clickhandler.reactGwt.client.Func.Run1<Throwable> failure) {
+        public RunResult failure(Func.Run1<Throwable> failure) {
             if (e != null && failure != null) {
                 failure.run(e);
             }

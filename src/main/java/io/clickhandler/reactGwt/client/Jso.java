@@ -12,9 +12,11 @@ public interface Jso {
         return Native.create();
     }
 
-    static <T> T create(Class<T> cls, io.clickhandler.reactGwt.client.Func.Run1<T> callback) {
+    static <T> T create(Class<T> cls, Func.Run1<T> callback) {
         final T jso = create();
-        if (callback != null) callback.run(jso);
+        if (callback != null) {
+            callback.run(jso);
+        }
         return jso;
     }
 
@@ -23,7 +25,7 @@ public interface Jso {
             return {};
         }-*/;
 
-        public static native void iterate(Object obj, io.clickhandler.reactGwt.client.Func.Run2<String, Object> callback) /*-{
+        public static native void iterate(Object obj, Func.Run2<String, Object> callback) /*-{
             if (!callback || !obj) {
                 return;
             }

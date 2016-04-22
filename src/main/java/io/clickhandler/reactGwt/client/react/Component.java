@@ -46,7 +46,6 @@ public abstract class Component<P, S> {
     /*
      * Factory Methods
      */
-
     @JsIgnore
     public ReactElement createElement() {
         return React.createElement(getReactClass(), createKeyedProps());
@@ -139,7 +138,6 @@ public abstract class Component<P, S> {
     /*
      * Lifecycle
      */
-
     public Func.Call<P> getDefaultProps = Func.bind(this::getDefaultProps);
 
     public Func.Call<S> getInitialState = Func.bind(this::getInitialState);
@@ -300,32 +298,8 @@ public abstract class Component<P, S> {
     }
 
     /*
-     * Old / TODO Remove
-     */
-
-    /*// No Usages
-    @JsIgnore
-    public static <T> T create() {
-        return Jso.create();
-    }
-
-    // No Usages
-    @JsIgnore
-    public static <T> T create(Class<T> cls) {
-        return Jso.create();
-    }
-
-    // No Usages
-    @JsIgnore
-    public static <T> T create(Class<T> cls, Func.Run1<T> callback) {
-        return Jso.create(cls, callback);
-    }*/
-
-    /*
      * Context
-     * TODO look at getting rid of this / what is working or not
      */
-
     public Func.Call getChildContext = this::getChildContext;
 
     public ContextTypes contextTypes = new ContextTypes();
@@ -357,3 +331,4 @@ public abstract class Component<P, S> {
         }
     }
 }
+

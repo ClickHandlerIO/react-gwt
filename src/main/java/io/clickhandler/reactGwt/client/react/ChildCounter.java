@@ -3,7 +3,7 @@ package io.clickhandler.reactGwt.client.react;
 import java.util.Stack;
 
 /**
- * TODO rename / do we need this?
+ * TODO rename and move to utils?
  */
 public class ChildCounter {
     private static final ChildCounter instance = new ChildCounter();

@@ -2,14 +2,13 @@ package io.clickhandler.reactGwt.client.dom;
 
 import io.clickhandler.reactGwt.client.Func;
 import io.clickhandler.reactGwt.client.Reflection;
+import io.clickhandler.reactGwt.client.event.*;
 import io.clickhandler.reactGwt.client.react.Ref;
 import jsinterop.annotations.JsIgnore;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
-/**
- *
- */
+
 @JsType
 public class HTMLProps<T> extends DOMProps<T> {
     @JsProperty
@@ -326,7 +325,9 @@ public class HTMLProps<T> extends DOMProps<T> {
     @Override
     @JsIgnore
     public HTMLProps<T> ref(final Ref<T> ref) {
-        if (ref == null) return this;
+        if (ref == null) {
+            return this;
+        }
         this.ref = ref.getName();
         return this;
     }
@@ -1007,8 +1008,9 @@ public class HTMLProps<T> extends DOMProps<T> {
 
     @JsIgnore
     public HTMLProps<T> style(Func.Run1<StyleProps> callback) {
-        if (callback == null)
+        if (callback == null) {
             return this;
+        }
         this.style = new StyleProps();
         callback.run(this.style);
         return this;
@@ -1196,441 +1198,441 @@ public class HTMLProps<T> extends DOMProps<T> {
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onCopy(io.clickhandler.reactGwt.client.event.ClipboardEventHandler value) {
+    public HTMLProps<T> onCopy(ClipboardEventHandler value) {
         super.onCopy(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onCut(io.clickhandler.reactGwt.client.event.ClipboardEventHandler value) {
+    public HTMLProps<T> onCut(ClipboardEventHandler value) {
         super.onCut(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onPaste(io.clickhandler.reactGwt.client.event.ClipboardEventHandler value) {
+    public HTMLProps<T> onPaste(ClipboardEventHandler value) {
         super.onPaste(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onCompositionEnd(io.clickhandler.reactGwt.client.event.CompositionEventHandler value) {
+    public HTMLProps<T> onCompositionEnd(CompositionEventHandler value) {
         super.onCompositionEnd(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onCompositionStart(io.clickhandler.reactGwt.client.event.CompositionEventHandler value) {
+    public HTMLProps<T> onCompositionStart(CompositionEventHandler value) {
         super.onCompositionStart(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onCompositionUpdate(io.clickhandler.reactGwt.client.event.CompositionEventHandler value) {
+    public HTMLProps<T> onCompositionUpdate(CompositionEventHandler value) {
         super.onCompositionUpdate(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onFocus(io.clickhandler.reactGwt.client.event.FocusEventHandler value) {
+    public HTMLProps<T> onFocus(FocusEventHandler value) {
         super.onFocus(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onBlur(io.clickhandler.reactGwt.client.event.FocusEventHandler value) {
+    public HTMLProps<T> onBlur(FocusEventHandler value) {
         super.onBlur(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onChange(io.clickhandler.reactGwt.client.event.FormEventHandler value) {
+    public HTMLProps<T> onChange(FormEventHandler value) {
         super.onChange(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onInput(io.clickhandler.reactGwt.client.event.FormEventHandler value) {
+    public HTMLProps<T> onInput(FormEventHandler value) {
         super.onInput(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onSubmit(io.clickhandler.reactGwt.client.event.FormEventHandler value) {
+    public HTMLProps<T> onSubmit(FormEventHandler value) {
         super.onSubmit(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onLoad(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onLoad(ReactEventHandler value) {
         super.onLoad(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onError(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onError(ReactEventHandler value) {
         super.onError(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onKeyDown(io.clickhandler.reactGwt.client.event.KeyboardEventHandler value) {
+    public HTMLProps<T> onKeyDown(KeyboardEventHandler value) {
         super.onKeyDown(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onKeyPress(io.clickhandler.reactGwt.client.event.KeyboardEventHandler value) {
+    public HTMLProps<T> onKeyPress(KeyboardEventHandler value) {
         super.onKeyPress(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onKeyUp(io.clickhandler.reactGwt.client.event.KeyboardEventHandler value) {
+    public HTMLProps<T> onKeyUp(KeyboardEventHandler value) {
         super.onKeyUp(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onAbort(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onAbort(ReactEventHandler value) {
         super.onAbort(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onCanPlay(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onCanPlay(ReactEventHandler value) {
         super.onCanPlay(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onCanPlayThrough(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onCanPlayThrough(ReactEventHandler value) {
         super.onCanPlayThrough(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onDurationChange(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onDurationChange(ReactEventHandler value) {
         super.onDurationChange(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onEmptied(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onEmptied(ReactEventHandler value) {
         super.onEmptied(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onEncrypted(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onEncrypted(ReactEventHandler value) {
         super.onEncrypted(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onEnded(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onEnded(ReactEventHandler value) {
         super.onEnded(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onLoadedData(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onLoadedData(ReactEventHandler value) {
         super.onLoadedData(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onLoadedMetadata(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onLoadedMetadata(ReactEventHandler value) {
         super.onLoadedMetadata(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onLoadStart(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onLoadStart(ReactEventHandler value) {
         super.onLoadStart(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onPause(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onPause(ReactEventHandler value) {
         super.onPause(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onPlay(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onPlay(ReactEventHandler value) {
         super.onPlay(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onPlaying(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onPlaying(ReactEventHandler value) {
         super.onPlaying(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onProgress(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onProgress(ReactEventHandler value) {
         super.onProgress(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onRateChange(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onRateChange(ReactEventHandler value) {
         super.onRateChange(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onSeeked(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onSeeked(ReactEventHandler value) {
         super.onSeeked(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onSeeking(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onSeeking(ReactEventHandler value) {
         super.onSeeking(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onStalled(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onStalled(ReactEventHandler value) {
         super.onStalled(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onSuspend(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onSuspend(ReactEventHandler value) {
         super.onSuspend(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onTimeUpdate(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onTimeUpdate(ReactEventHandler value) {
         super.onTimeUpdate(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onVolumeChange(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onVolumeChange(ReactEventHandler value) {
         super.onVolumeChange(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onWaiting(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onWaiting(ReactEventHandler value) {
         super.onWaiting(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onClick(io.clickhandler.reactGwt.client.event.MouseEventHandler value) {
+    public HTMLProps<T> onClick(MouseEventHandler value) {
         super.onClick(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onContextMenu(io.clickhandler.reactGwt.client.event.MouseEventHandler value) {
+    public HTMLProps<T> onContextMenu(MouseEventHandler value) {
         super.onContextMenu(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onDoubleClick(io.clickhandler.reactGwt.client.event.MouseEventHandler value) {
+    public HTMLProps<T> onDoubleClick(MouseEventHandler value) {
         super.onDoubleClick(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onDrag(io.clickhandler.reactGwt.client.event.DragEventHandler value) {
+    public HTMLProps<T> onDrag(DragEventHandler value) {
         super.onDrag(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onDragEnd(io.clickhandler.reactGwt.client.event.DragEventHandler value) {
+    public HTMLProps<T> onDragEnd(DragEventHandler value) {
         super.onDragEnd(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onDragEnter(io.clickhandler.reactGwt.client.event.DragEventHandler value) {
+    public HTMLProps<T> onDragEnter(DragEventHandler value) {
         super.onDragEnter(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onDragExit(io.clickhandler.reactGwt.client.event.DragEventHandler value) {
+    public HTMLProps<T> onDragExit(DragEventHandler value) {
         super.onDragExit(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onDragLeave(io.clickhandler.reactGwt.client.event.DragEventHandler value) {
+    public HTMLProps<T> onDragLeave(DragEventHandler value) {
         super.onDragLeave(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onDragOver(io.clickhandler.reactGwt.client.event.DragEventHandler value) {
+    public HTMLProps<T> onDragOver(DragEventHandler value) {
         super.onDragOver(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onDragStart(io.clickhandler.reactGwt.client.event.DragEventHandler value) {
+    public HTMLProps<T> onDragStart(DragEventHandler value) {
         super.onDragStart(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onDrop(io.clickhandler.reactGwt.client.event.DragEventHandler value) {
+    public HTMLProps<T> onDrop(DragEventHandler value) {
         super.onDrop(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onMouseDown(io.clickhandler.reactGwt.client.event.MouseEventHandler value) {
+    public HTMLProps<T> onMouseDown(MouseEventHandler value) {
         super.onMouseDown(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onMouseEnter(io.clickhandler.reactGwt.client.event.MouseEventHandler value) {
+    public HTMLProps<T> onMouseEnter(MouseEventHandler value) {
         super.onMouseEnter(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onMouseLeave(io.clickhandler.reactGwt.client.event.MouseEventHandler value) {
+    public HTMLProps<T> onMouseLeave(MouseEventHandler value) {
         super.onMouseLeave(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onMouseMove(io.clickhandler.reactGwt.client.event.MouseEventHandler value) {
+    public HTMLProps<T> onMouseMove(MouseEventHandler value) {
         super.onMouseMove(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onMouseOut(io.clickhandler.reactGwt.client.event.MouseEventHandler value) {
+    public HTMLProps<T> onMouseOut(MouseEventHandler value) {
         super.onMouseOut(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onMouseOver(io.clickhandler.reactGwt.client.event.MouseEventHandler value) {
+    public HTMLProps<T> onMouseOver(MouseEventHandler value) {
         super.onMouseOver(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onMouseUp(io.clickhandler.reactGwt.client.event.MouseEventHandler value) {
+    public HTMLProps<T> onMouseUp(MouseEventHandler value) {
         super.onMouseUp(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onSelect(io.clickhandler.reactGwt.client.event.ReactEventHandler value) {
+    public HTMLProps<T> onSelect(ReactEventHandler value) {
         super.onSelect(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onTouchCancel(io.clickhandler.reactGwt.client.event.TouchEventHandler value) {
+    public HTMLProps<T> onTouchCancel(TouchEventHandler value) {
         super.onTouchCancel(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onTouchEnd(io.clickhandler.reactGwt.client.event.TouchEventHandler value) {
+    public HTMLProps<T> onTouchEnd(TouchEventHandler value) {
         super.onTouchEnd(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onTouchMove(io.clickhandler.reactGwt.client.event.TouchEventHandler value) {
+    public HTMLProps<T> onTouchMove(TouchEventHandler value) {
         super.onTouchMove(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onTouchStart(io.clickhandler.reactGwt.client.event.TouchEventHandler value) {
+    public HTMLProps<T> onTouchStart(TouchEventHandler value) {
         super.onTouchStart(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onScroll(io.clickhandler.reactGwt.client.event.UIEventHandler value) {
+    public HTMLProps<T> onScroll(UIEventHandler value) {
         super.onScroll(value);
         return this;
     }
 
     @Override
     @JsIgnore
-    public HTMLProps<T> onWheel(io.clickhandler.reactGwt.client.event.WheelEventHandler value) {
+    public HTMLProps<T> onWheel(WheelEventHandler value) {
         super.onWheel(value);
         return this;
     }

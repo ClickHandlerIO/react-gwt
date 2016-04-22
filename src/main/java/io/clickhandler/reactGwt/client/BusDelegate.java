@@ -12,10 +12,10 @@ import java.util.ArrayList;
  * @author Clay Molocznik
  */
 public class BusDelegate implements HandlerRegistration {
-    private final io.clickhandler.reactGwt.client.Bus delegate;
+    private final Bus delegate;
     private ArrayList<HandlerRegistration> registrations;
 
-    public BusDelegate(io.clickhandler.reactGwt.client.Bus delegate) {
+    public BusDelegate(Bus delegate) {
         this.delegate = delegate;
     }
 
@@ -48,7 +48,7 @@ public class BusDelegate implements HandlerRegistration {
      * @param <T>
      * @return
      */
-    public <T> HandlerRegistration subscribe(io.clickhandler.reactGwt.client.Bus.TypeName<T> named, EventCallback<T> callback) {
+    public <T> HandlerRegistration subscribe(Bus.TypeName<T> named, EventCallback<T> callback) {
         return register(delegate.subscribe(named, callback));
     }
 
@@ -110,7 +110,7 @@ public class BusDelegate implements HandlerRegistration {
      * @param event
      * @param <T>
      */
-    public <T> void publish(io.clickhandler.reactGwt.client.Bus.TypeName<T> name, T event) {
+    public <T> void publish(Bus.TypeName<T> name, T event) {
         delegate.publish(name, event);
     }
 
