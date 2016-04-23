@@ -11,13 +11,13 @@ link to material-ui-gwt and camber repositories
 ## More than a GWT wrapper of React
 describe the diff peices of
 
-### Injection and Code Splitting
+#### Injection and Code Splitting
 todo desc how dagger is the recommended way by gwt team for injection and how we impl Dagger modules and integrate with routing
 
-### Event Bus
+#### Event Bus
 all the tools needed to create your own typesafe flux pattern
 
-### Remoting
+#### Remoting
 
 ## Roadmap
 As of the 0.3.0 relase the API is stable and will see very few breaking changes. Please take a look at our GitHub issues to see what features we plan on implmenting.
