@@ -30,6 +30,15 @@ public interface ReactComponent<P, S> {
     S getState();
 
     @JsOverlay
+    default void setState(io.clickhandler.reactGwt.client.Func.Run1<S> stateCallback) {
+        final S state = io.clickhandler.reactGwt.client.Jso.create();
+        if (stateCallback != null) {
+            stateCallback.run(state);
+        }
+        setState(state);
+    }
+
+    @JsOverlay
     default S state() {
         return getState();
     }
@@ -58,13 +67,17 @@ public interface ReactComponent<P, S> {
     @JsMethod
     void forceUpdate(io.clickhandler.reactGwt.client.Func.Run callback);
 
-
     @JsOverlay
     default void cleanup() {
         final io.clickhandler.reactGwt.client.BusDelegate bus = getBus();
         if (bus != null) {
             bus.clear();
         }
+    }
+
+    @JsOverlay
+    default <H extends AbstractAction<IN, OUT>, IN, OUT> ActionCall<IN, OUT> ask(Provider<H> action) {
+        return ActionCall.create(getBus(), action);
     }
 
     @JsOverlay
@@ -85,15 +98,6 @@ public interface ReactComponent<P, S> {
     @JsOverlay
     default <T> T getProperty(String name) {
         return io.clickhandler.reactGwt.client.Reflection.get(this, name);
-    }
-
-    @JsOverlay
-    default void setState(io.clickhandler.reactGwt.client.Func.Run1<S> stateCallback) {
-        final S state = io.clickhandler.reactGwt.client.Jso.create();
-        if (stateCallback != null) {
-            stateCallback.run(state);
-        }
-        setState(state);
     }
 
     /**
