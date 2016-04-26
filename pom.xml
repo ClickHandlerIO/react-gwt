@@ -54,6 +54,7 @@
         <java.version>1.8</java.version>
         <gwt.version>2.8.0-SNAPSHOT</gwt.version>
         <dagger-gwt.version>0.1.0</dagger-gwt.version>
+        <gwt-lumberjack.version>0.1.0-SNAPSHOT</gwt-lumberjack.version>
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
         <maven-resources-plugin.version>2.5</maven-resources-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
@@ -159,6 +160,12 @@
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-elemental</artifactId>
             <version>${gwt.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.clickhandler</groupId>
+            <artifactId>gwt-lumberjack</artifactId>
+            <version>${gwt-lumberjack.version}</version>
         </dependency>
     </dependencies>
 

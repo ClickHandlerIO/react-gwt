@@ -5,6 +5,9 @@ import io.clickhandler.reactGwt.client.Func;
 import io.clickhandler.reactGwt.client.Jso;
 import io.clickhandler.reactGwt.client.Reflection;
 import io.clickhandler.reactGwt.client.dom.DOM;
+import jsinterop.annotations.JsIgnore;
+
+import java.util.logging.Logger;
 
 
 public abstract class ExternalComponent<P> {

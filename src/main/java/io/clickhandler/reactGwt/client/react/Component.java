@@ -2,8 +2,8 @@ package io.clickhandler.reactGwt.client.react;
 
 import elemental.client.Browser;
 import elemental.dom.Document;
-import elemental.html.Console;
 import elemental.html.Window;
+import io.clickhandler.gwtLumberjack.client.Logger;
 import io.clickhandler.reactGwt.client.*;
 import io.clickhandler.reactGwt.client.dom.DOM;
 import jsinterop.annotations.JsIgnore;
@@ -12,24 +12,30 @@ import jsinterop.annotations.JsType;
 
 import javax.inject.Inject;
 
+
 @JsType
 public abstract class Component<P, S> {
-    @JsIgnore
-    protected final Console console = Browser.getWindow().getConsole();
+    //    @JsIgnore
+//    protected final Console console = Browser.getWindow().getConsole();
     @JsIgnore
     protected final Document document = Browser.getDocument();
     @JsIgnore
     protected final Window window = Browser.getWindow();
     @JsIgnore
+    protected final Logger log = Logger.get(getClass());
+    @JsIgnore
     @Inject
     protected Bus bus;
     @JsIgnore
     private ReactClass<P> reactClass;
+    @JsIgnore
+    private Logger logger;
 
     public String displayName;
 
     public Component() {
         displayName = getClass().getSimpleName();
+
         // todo context stuff needed?
         addContextTypes(contextTypes);
         addChildContextTypes(childContextTypes);
@@ -48,16 +54,19 @@ public abstract class Component<P, S> {
      */
     @JsIgnore
     public ReactElement createElement() {
+        log.trace("createElement()");
         return React.createElement(getReactClass(), createKeyedProps());
     }
 
     @JsIgnore
     public ReactElement createElement(Object... children) {
+        log.trace("createElement(children)", children);
         return React.createElement(getReactClass(), createKeyedProps(), children);
     }
 
     @JsIgnore
     public ReactElement createElement(P props) {
+        log.trace("createElement(props)", props);
         if (props == null) {
             props = createKeyedProps();
         } else if (Reflection.get(props, "key") == null) {
@@ -68,6 +77,7 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     public ReactElement createElement(Func.Run1<P> propsCallback) {
+        log.trace("createElement(propsCallback)", propsCallback);
         final P props = createKeyedProps();
         if (propsCallback != null) {
             propsCallback.run(props);
@@ -77,6 +87,7 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     public ReactElement createElement(Func.Run1<P> propsCallback, Object... children) {
+        log.trace("createElement(propsCallback, children)", propsCallback, children);
         final P props = createKeyedProps();
         if (propsCallback != null) {
             propsCallback.run(props);
@@ -86,6 +97,8 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     public ReactElement createElement(Func.Run2<P, DOM.ChildList> callback) {
+        log.trace("createElement(Run2<props, children>)", callback);
+
         final P props = createKeyedProps();
         final DOM.ChildList childList = new DOM.ChildList();
         if (callback != null) {
@@ -96,6 +109,7 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     private P createKeyedProps() {
+        log.trace("createKeyedProps");
         final P props = Jso.create();
 //        if (Reflection.get(props, "key") == null) {
 //            Reflection.set(props, "key", ChildCounter.get().newKey());
@@ -164,12 +178,14 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     private void componentWillMountInternal(final ReactComponent<P, S> $this) {
+        log.trace("componentWillMount");
         Reflection.set($this, React.BUS, new BusDelegate(bus));
         componentWillMount($this);
     }
 
     @JsIgnore
     private void componentDidMountInternal(final ReactComponent<P, S> $this) {
+        log.trace("componentDidMount");
         try {
             componentDidMount($this);
         } finally {
@@ -179,6 +195,7 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     private void componentWillReceivePropsInternal(final ReactComponent<P, S> $this, P nextProps) {
+        log.trace("componentWillReceiveProps");
         try {
             componentWillReceiveProps($this, nextProps);
         } finally {
@@ -188,16 +205,19 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     private boolean shouldComponentUpdateInternal(final ReactComponent<P, S> $this, P nextProps, S nextState) {
+        log.trace("shouldComponentUpdateInternal");
         return shouldComponentUpdate($this, nextProps, nextState);
     }
 
     @JsIgnore
     private void componentWillUpdateInternal(final ReactComponent<P, S> $this, P nextProps, S nextState) {
+        log.trace("componentWillUpdate");
         componentWillUpdate($this, nextProps, nextState);
     }
 
     @JsIgnore
     private ReactElement renderInternal(final ReactComponent<P, S> $this) {
+        log.trace("render");
 
         // TODO do we need this child key for all components?
         P props = $this.getProps();
@@ -230,6 +250,9 @@ public abstract class Component<P, S> {
             }
 
             return render($this);
+        } catch (Exception e) {
+            log.error(e);
+            return render($this);
         } finally {
             ChildCounter.get().pop(); //  needed?
         }
@@ -237,11 +260,13 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     private void componentDidUpdateInternal(final ReactComponent<P, S> $this, P prevProps, S prevState) {
+        log.trace("componentDidUpdate");
         componentDidUpdate($this, prevProps, prevState);
     }
 
     @JsIgnore
     private void componentWillUnmountInternal(final ReactComponent<P, S> $this) {
+        log.trace("componentWillUnmount");
         try {
             $this.eventRegistrationCleanup();
         } finally {
