@@ -35,7 +35,6 @@ public abstract class Component<P, S> {
 
     public Component() {
         displayName = getClass().getSimpleName();
-
         // todo context stuff needed?
         addContextTypes(contextTypes);
         addChildContextTypes(childContextTypes);
@@ -55,30 +54,40 @@ public abstract class Component<P, S> {
     @JsIgnore
     public ReactElement createElement() {
         log.trace("createElement()");
-        return React.createElement(getReactClass(), createKeyedProps());
+        return React.createElement(getReactClass(), Jso.create());
+    }
+
+    @JsIgnore
+    public ReactElement createElement(String key) {
+        log.trace("createElement(key)", key);
+        return React.createElement(getReactClass(), createPropsWithKey(key));
     }
 
     @JsIgnore
     public ReactElement createElement(Object... children) {
         log.trace("createElement(children)", children);
-        return React.createElement(getReactClass(), createKeyedProps(), children);
+        return React.createElement(getReactClass(), Jso.create(), children);
+    }
+
+    @JsIgnore
+    public ReactElement createElement(String key, Object... children) {
+        log.trace("createElement(key, children)", key, children);
+        return React.createElement(getReactClass(), createPropsWithKey(key), children);
     }
 
     @JsIgnore
     public ReactElement createElement(P props) {
         log.trace("createElement(props)", props);
         if (props == null) {
-            props = createKeyedProps();
-        } else if (Reflection.get(props, "key") == null) {
-            Reflection.set(props, "key", ChildCounter.get().newKey());
+            props = Jso.create();
         }
         return React.createElement(getReactClass(), props);
     }
 
     @JsIgnore
     public ReactElement createElement(Func.Run1<P> propsCallback) {
-        log.trace("createElement(propsCallback)", propsCallback);
-        final P props = createKeyedProps();
+        log.trace("createElement(propsCallback)");
+        final P props = Jso.create();
         if (propsCallback != null) {
             propsCallback.run(props);
         }
@@ -87,8 +96,8 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     public ReactElement createElement(Func.Run1<P> propsCallback, Object... children) {
-        log.trace("createElement(propsCallback, children)", propsCallback, children);
-        final P props = createKeyedProps();
+        log.trace("createElement(propsCallback, children)", children);
+        final P props = Jso.create();
         if (propsCallback != null) {
             propsCallback.run(props);
         }
@@ -97,9 +106,8 @@ public abstract class Component<P, S> {
 
     @JsIgnore
     public ReactElement createElement(Func.Run2<P, DOM.ChildList> callback) {
-        log.trace("createElement(Run2<props, children>)", callback);
-
-        final P props = createKeyedProps();
+        log.trace("createElement(Run2<props, children>)");
+        final P props = Jso.create();
         final DOM.ChildList childList = new DOM.ChildList();
         if (callback != null) {
             callback.run(props, childList);
@@ -108,12 +116,12 @@ public abstract class Component<P, S> {
     }
 
     @JsIgnore
-    private P createKeyedProps() {
-        log.trace("createKeyedProps");
+    private P createPropsWithKey(String key) {
+        log.trace("createPropsWithKey(key)", key);
         final P props = Jso.create();
-//        if (Reflection.get(props, "key") == null) {
-//            Reflection.set(props, "key", ChildCounter.get().newKey());
-//        }
+        if (key != null) {
+            Reflection.set(props, "key", key);
+        }
         return props;
     }
 
@@ -125,8 +133,18 @@ public abstract class Component<P, S> {
     }
 
     @JsIgnore
+    public ReactElement $(String key) {
+        return createElement(key);
+    }
+
+    @JsIgnore
     public ReactElement $(Object... children) {
         return createElement(children);
+    }
+
+    @JsIgnore
+    public ReactElement $(String key, Object... children) {
+        return createElement(key, children);
     }
 
     @JsIgnore
@@ -218,8 +236,9 @@ public abstract class Component<P, S> {
     @JsIgnore
     private ReactElement renderInternal(final ReactComponent<P, S> $this) {
         log.trace("render");
+        return render($this);
 
-        // TODO do we need this child key for all components?
+       /* // TODO do we need this child key for all components?
         P props = $this.getProps();
         ChildCounter.get().scope();
         try {
@@ -252,10 +271,10 @@ public abstract class Component<P, S> {
             return render($this);
         } catch (Exception e) {
             log.error(e);
-            return render($this);
+
         } finally {
             ChildCounter.get().pop(); //  needed?
-        }
+        }*/
     }
 
     @JsIgnore

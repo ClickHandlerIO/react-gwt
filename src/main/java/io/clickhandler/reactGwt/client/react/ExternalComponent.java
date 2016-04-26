@@ -20,25 +20,20 @@ public abstract class ExternalComponent<P> {
      * Props
      */
 
-    private P getProps() {
-        P props = Reflection.get(getReactClass(), "getDefaultProps") != null ? getReactClass().getDefaultProps() : Jso.create();
+    private P createProps() {
+        P props = Jso.create();
+        if (Reflection.get(getReactClass(), "getDefaultProps")) {
+            Reflection.assign(props, getReactClass().getDefaultProps());
+        }
         applyDefaults(props);
-        // todo apply keys?
         return props;
     }
 
 
-    private void applyDefaults(P props) {
+    protected void applyDefaults(P props) {
+        log.trace("applyDefaults(props)", props);
         // Allows a place for subclasses to set defaults
     }
-
-    /*protected void applyKey(P props) {
-        log.trace("applyKey(props)", props);
-        Object key = Reflection.get(props, "key");
-        if (key == null) {
-            Reflection.set(props, "key", io.clickhandler.reactGwt.client.react.ChildCounter.get().newKey());
-        }
-    }*/
 
     /*
      * Factory Methods
@@ -46,12 +41,30 @@ public abstract class ExternalComponent<P> {
 
     public ReactElement createElement() {
         log.trace("createElement()");
-        return React.createElement(getReactClass(), getProps());
+        return React.createElement(getReactClass(), createProps());
+    }
+
+    public ReactElement createElement(String key) {
+        log.trace("createElement(key)", key);
+        P props = createProps();
+        if (key != null) {
+            Reflection.set(props, "key", key);
+        }
+        return React.createElement(getReactClass(), props);
     }
 
     public ReactElement createElement(Object... children) {
         log.trace("createElement(children)", children);
-        return React.createElement(getReactClass(), getProps(), children);
+        return React.createElement(getReactClass(), createProps(), children);
+    }
+
+    public ReactElement createElement(String key, Object... children) {
+        log.trace("createElement(key, children)", key, children);
+        P props = createProps();
+        if (key != null) {
+            Reflection.set(props, "key", key);
+        }
+        return React.createElement(getReactClass(), props, children);
     }
 
     public ReactElement createElement(P props) {
@@ -59,13 +72,13 @@ public abstract class ExternalComponent<P> {
         if (props == null) {
             props = Jso.create();
         }
-        Reflection.assign(props, getProps());
+        Reflection.assign(props, createProps());
         return React.createElement(getReactClass(), props);
     }
 
     public ReactElement createElement(Func.Run1<P> propsCallback) {
-        log.trace("createElement(propsCallback)", propsCallback);
-        final P props = getProps();
+        log.trace("createElement(propsCallback)");
+        final P props = createProps();
         if (propsCallback != null) {
             propsCallback.run(props);
         }
@@ -73,8 +86,8 @@ public abstract class ExternalComponent<P> {
     }
 
     public ReactElement createElement(Func.Run1<P> propsCallback, Object... children) {
-        log.trace("createElement(propsCallback, children)", propsCallback, children);
-        final P props = getProps();
+        log.trace("createElement(propsCallback, children)", children);
+        final P props = createProps();
         if (propsCallback != null) {
             propsCallback.run(props);
         }
@@ -82,8 +95,8 @@ public abstract class ExternalComponent<P> {
     }
 
     public ReactElement createElement(Func.Run2<P, DOM.ChildList> callback) {
-        log.trace("createElement(Run2<props, children>)", callback);
-        final P props = getProps();
+        log.trace("createElement(Run2<props, children>)");
+        final P props = createProps();
         final DOM.ChildList childList = new DOM.ChildList();
         if (callback != null) {
             callback.run(props, childList);
@@ -97,8 +110,16 @@ public abstract class ExternalComponent<P> {
         return createElement();
     }
 
+    public ReactElement $(String key) {
+        return createElement(key);
+    }
+
     public ReactElement $(Object... children) {
         return createElement(children);
+    }
+
+    public ReactElement $(String key, Object... children) {
+        return createElement(key, children);
     }
 
     public ReactElement $(P props) {
