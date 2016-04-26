@@ -22,8 +22,14 @@ public abstract class ExternalComponent<P> {
 
     private P getProps() {
         P props = Reflection.get(getReactClass(), "getDefaultProps") != null ? getReactClass().getDefaultProps() : Jso.create();
-        // todo apply key?
+        applyDefaults(props);
+        // todo apply keys?
         return props;
+    }
+
+
+    private void applyDefaults(P props) {
+        // Allows a place for subclasses to set defaults
     }
 
     /*protected void applyKey(P props) {
