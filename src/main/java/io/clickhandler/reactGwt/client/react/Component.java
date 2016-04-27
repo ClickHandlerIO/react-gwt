@@ -184,10 +184,10 @@ public abstract class Component<P, S> {
 
     public Func.Run2<P, S> componentWillUpdate = Func.bind(this::componentWillUpdateInternal);
 
-    @JsProperty(name = "render") // todo test if we need the property name declaration
+//    @JsProperty(name = "render") // todo test if we need the property name declaration
     public Func.Call<ReactElement> render = Func.bind(this::renderInternal);
 
-    @JsProperty(name = "componentDidUpdate") // todo test if we need the property name declaration
+//    @JsProperty(name = "componentDidUpdate") // todo test if we need the property name declaration
     public Func.Run2<P, S> componentDidUpdate = Func.bind(this::componentDidUpdateInternal);
 
     public Func.Run componentWillUnmount = Func.bind(this::componentWillUnmountInternal);
@@ -237,44 +237,6 @@ public abstract class Component<P, S> {
     private ReactElement renderInternal(final ReactComponent<P, S> $this) {
         log.trace("render");
         return render($this);
-
-       /* // TODO do we need this child key for all components?
-        P props = $this.getProps();
-        ChildCounter.get().scope();
-        try {
-            if (props != null) {
-                // Fix children not having a "key" set.
-                Object children = Reflection.get(props, "children");
-                if (children != null) {
-                    Object key = Reflection.get(children, "key");
-
-                    if (key == null) {
-                        // Create a new key.
-                        key = ChildCounter.get().newKey();
-                        // Try to set it on children.
-                        Reflection.set(children, "key", key);
-
-                        // Test that key was set properly.
-                        if (Reflection.get(children, "key") != key) {
-                            // Copy to new "children" object.
-                            final Object newChildren = new Object();
-                            Reflection.assign(newChildren, children);
-                            // Set key.
-                            Reflection.set(newChildren, "key", key);
-                            // Set new "children" on props.
-                            Reflection.set(props, "children", newChildren);
-                        }
-                    }
-                }
-            }
-
-            return render($this);
-        } catch (Exception e) {
-            log.error(e);
-
-        } finally {
-            ChildCounter.get().pop(); //  needed?
-        }*/
     }
 
     @JsIgnore

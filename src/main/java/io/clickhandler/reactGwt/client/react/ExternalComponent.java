@@ -22,7 +22,7 @@ public abstract class ExternalComponent<P> {
 
     private P createProps() {
         P props = Jso.create();
-        if (Reflection.get(getReactClass(), "getDefaultProps")) {
+        if (Reflection.get(getReactClass(), "getDefaultProps") != null) {
             Reflection.assign(props, getReactClass().getDefaultProps());
         }
         applyDefaults(props);

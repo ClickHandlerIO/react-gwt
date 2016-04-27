@@ -15,7 +15,7 @@ public interface DOM {
     static <T> HTMLProps<T> props(String tagName) {
         final HTMLProps<T> props = new HTMLProps<>();
 
-        props.key(ChildCounter.get().newKey());
+//        props.key(ChildCounter.get().newKey());
 
         return props;
     }
