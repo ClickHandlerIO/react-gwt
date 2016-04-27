@@ -22,5 +22,9 @@ all the tools needed to create your own typesafe flux pattern
 ## Roadmap
 As of the 0.3.0 relase the API is stable and will see very few breaking changes. Please take a look at our GitHub issues to see what features we plan on implmenting.
 
+## FAQ
+#### Why use @JsInterop interfaces?
+GWT uses a number of backing maps and objects to track property castability when using @JsType on classes. By creating java interfaces with @JsType(isNative=true) the backing Javascript objects do not contain this extra cruft.
+
 ## Contributing
 todo text about how stoked we are to get contributions and link to contributing guidelines
