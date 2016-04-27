@@ -67,6 +67,11 @@ public interface ReactComponent<P, S> {
     }
 
     @JsOverlay
+    default <H extends AbstractAction<IN, OUT>, IN, OUT> ActionCall<IN, OUT> ask(Provider<H> action) {
+        return ActionCall.create(getBus(), action);
+    }
+
+    @JsOverlay
     default void replaceState(Func.Run1<S> stateCallback, Func.Run callback) {
         final S state = Jso.create();
         if (stateCallback != null) {
